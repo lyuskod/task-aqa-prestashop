@@ -20,14 +20,14 @@ public class ShoppingCartSteps {
         this.productAddedModalForm = new ProductAddedModalForm();
     }
 
-    @When("^I add product on the '{int}' position choosing '{int}' as quantity to shopping cart$")
+    @When("I add product on the '{int}' position choosing '{int}' as quantity to shopping cart")
     public void addProductsToShoppingCart(int productPosition, int quantity) {
         var product = this.productsForm.selectProductByIndex(productPosition);
         product.enterQuantity(quantity);
         product.clickAddToCartBtn();
     }
 
-    @Then("^I verify that product added modal is opened$")
+    @Then("I verify that product added modal is opened")
     public void verifyProductAddedModalOpened() {
         AutomationService.get().browser().window().switchToDefaultContent();
         AutomationService.get().browser().window().switchToFrame("framelive");
@@ -37,7 +37,7 @@ public class ShoppingCartSteps {
                         BooleanExtensions.getWording(actualState)), true);
     }
 
-    @Then("^I verify that product has the following info on the product added modal:$")
+    @Then("I verify that product has the following info on the product added modal:")
     public void verifyProductAddedModalProductInfo() {
         var productModel = new ProductAddedModel();
         productModel.setQuantity(2);

@@ -9,9 +9,10 @@ import org.junit.runner.RunWith;
         features = "src/test/java/com/github/prestashop/features",
         glue = {
                 "com/github/prestashop/steps",
-                "com/github/prestashop/hooks"
+                "com/github/prestashop/hooks",
+                "com/github/prestashop/transformations"
         },
-        plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
+        plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"}
 )
 public class TestRunner {
 }

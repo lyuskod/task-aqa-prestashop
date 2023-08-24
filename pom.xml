@@ -10,36 +10,25 @@
 
     <properties>
         <webdrivermanager.version>4.2.0</webdrivermanager.version>
-        <gherkin.version>26.0.3</gherkin.version>
         <selenium.version>4.9.1</selenium.version>
-        <cucumber.version>7.13.0</cucumber.version>
-        <junit.version>5.9.3</junit.version>
-        <log4j.vesion>2.19.0</log4j.vesion>
+        <cucumber.version>5.7.0</cucumber.version>
         <aspectj.version>1.8.10</aspectj.version>
+        <allure-cucumber5-jvm.version>2.13.3</allure-cucumber5-jvm.version>
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
+        <allure.cucumberJVM.version>2.13.3</allure.cucumberJVM.version>
         <junit-jupiter-api.version>5.9.3</junit-jupiter-api.version>
-        <allure-cucumber7-jvm.version>2.23.0</allure-cucumber7-jvm.version>
-        <allure-junit5.version>2.22.1</allure-junit5.version>
         <lombok.version>1.18.26</lombok.version>
+        <log4j.vesion>2.19.0</log4j.vesion>
         <maven.compiler.source>20</maven.compiler.source>
         <maven.compiler.target>20</maven.compiler.target>
-        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+        <maven.surfire.plugin.version>2.20</maven.surfire.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>gherkin</artifactId>
-            <version>26.0.3</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -62,14 +51,19 @@
             <version>${junit-jupiter-api.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>${allure-cucumber7-jvm.version}</version>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit5</artifactId>
-            <version>${allure-junit5.version}</version>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>${allure-cucumber5-jvm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -87,11 +81,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
+                <version>${maven.surfire.plugin.version}</version>
                 <configuration>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dcucumber.options="--plugin io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+                        -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"
                     </argLine>
                 </configuration>
                 <dependencies>
@@ -101,6 +95,11 @@
                         <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.plugin.version}</version>
             </plugin>
         </plugins>
     </build>

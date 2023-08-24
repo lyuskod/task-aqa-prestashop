@@ -14,11 +14,11 @@ public class ArtPageSteps {
         this.artPage = new ArtPage();
     }
 
-    @Then("^I verify that Art page is opened")
-    public void verifyArtPageOpenedStep()
+    @Then("I verify that Art page is '{isOpenedTransform}'")
+    public void verifyArtPageOpenedStep(boolean expectedState)
     {
         boolean actualState = this.artPage.isOpened();
-        AssertHelper.assertEquals(actualState, true,
+        AssertHelper.assertEquals(actualState, expectedState,
                 String.format("The '%s' page is %sopened", this.artPage.getFormName(),
                         BooleanExtensions.getWording(actualState)), true);
     }

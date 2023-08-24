@@ -21,7 +21,7 @@ public class NavigationSteps {
                 .browser().go("https://demo.prestashop.com/#/en/front");
     }
 
-    @When("^I click on '(Clothes|Accessories|Art)' top menu item$")
+    @When("I click on '(Clothes|Accessories|Art)' top menu item$")
     public void selectTopMenuItemStep(String topMenuItem)
     {
         var element = TopMenu.TopMenuElements.parse(topMenuItem);
