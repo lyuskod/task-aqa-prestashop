@@ -1,10 +1,10 @@
 package com.github.prestashop.pages.pages;
 
+import com.github.prestashop.pages.PageProxy;
 import org.openqa.selenium.By;
 import com.github.prestashop.pages.forms.TopMenu;
-import com.github.prestashop.services.page.BaseForm;
 
-public class MainPage extends BaseForm {
+public class MainPage extends PageProxy {
 
     private final TopMenu topMenu;
 

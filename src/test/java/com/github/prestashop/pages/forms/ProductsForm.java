@@ -1,10 +1,11 @@
 package com.github.prestashop.pages.forms;
 
+import com.github.prestashop.pages.PageProxy;
 import org.openqa.selenium.By;
 import com.github.prestashop.services.element.Label;
 import com.github.prestashop.services.page.BaseForm;
 
-public class ProductsForm extends BaseForm {
+public class ProductsForm extends PageProxy {
 
     private final ProductForm productForm;
     public ProductsForm() {

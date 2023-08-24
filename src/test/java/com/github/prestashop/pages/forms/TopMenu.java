@@ -1,5 +1,6 @@
 package com.github.prestashop.pages.forms;
 
+import com.github.prestashop.pages.PageProxy;
 import com.github.prestashop.services.element.MenuItem;
 import com.github.prestashop.interfaces.element.IBaseElement;
 import com.github.prestashop.interfaces.enums.IEnumParser;
@@ -10,7 +11,7 @@ import com.github.prestashop.services.page.BaseForm;
 
 import java.util.HashMap;
 
-public class TopMenu extends BaseForm {
+public class TopMenu extends PageProxy {
 
     @AllArgsConstructor
     public enum TopMenuElements implements IEnumParser {
