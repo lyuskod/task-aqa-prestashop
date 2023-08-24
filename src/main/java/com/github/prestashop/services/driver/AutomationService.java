@@ -2,6 +2,7 @@ package com.github.prestashop.services.driver;
 
 import com.github.prestashop.factory.BrowserFactory;
 import com.github.prestashop.interfaces.driver.IAutomationService;
+import com.github.prestashop.services.logger.BaseLogger;
 
 public class AutomationService implements IAutomationService {
     private final BaseDriver driver;

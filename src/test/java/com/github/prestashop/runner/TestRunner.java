@@ -1,4 +1,4 @@
-package runner;
+package com.github.prestashop.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -6,13 +6,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/features",
+        features = "src/test/java/com/github/prestashop/features",
         glue = {
-                "steps",
-                "hooks",
-                "transformations"
+                "com/github/prestashop/steps",
+                "com/github/prestashop/hooks"
         },
         plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 )
 public class TestRunner {
 }
+

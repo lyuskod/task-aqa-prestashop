@@ -1,16 +1,17 @@
-package steps;
+package com.github.prestashop.steps;
 
 import com.github.prestashop.services.driver.AutomationService;
 import com.github.prestashop.extensions.BooleanExtensions;
 import com.github.prestashop.helpers.AssertHelper;
 import io.cucumber.java.en.Then;
-import pages.pages.MainPage;
+import com.github.prestashop.pages.pages.MainPage;
 
 public class MainPageSteps {
 
     private final MainPage mainPage;
 
     public MainPageSteps() {
+
         this.mainPage = new MainPage();
     }
 

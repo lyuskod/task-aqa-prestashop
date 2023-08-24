@@ -1,5 +1,6 @@
-package hooks;
+package com.github.prestashop.hooks;
 
+import com.github.prestashop.helpers.AllureHelper;
 import com.github.prestashop.services.driver.AutomationService;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

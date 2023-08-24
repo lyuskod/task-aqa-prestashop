@@ -1,4 +1,4 @@
-package pages.pages;
+package com.github.prestashop.pages.pages;
 
 import org.openqa.selenium.By;
 import com.github.prestashop.services.page.BaseForm;

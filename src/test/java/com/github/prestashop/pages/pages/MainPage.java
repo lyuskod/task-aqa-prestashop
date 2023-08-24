@@ -1,7 +1,7 @@
-package pages.pages;
+package com.github.prestashop.pages.pages;
 
 import org.openqa.selenium.By;
-import pages.forms.TopMenu;
+import com.github.prestashop.pages.forms.TopMenu;
 import com.github.prestashop.services.page.BaseForm;
 
 public class MainPage extends BaseForm {

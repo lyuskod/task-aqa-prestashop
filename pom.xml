@@ -12,7 +12,7 @@
         <webdrivermanager.version>4.2.0</webdrivermanager.version>
         <gherkin.version>26.0.3</gherkin.version>
         <selenium.version>4.9.1</selenium.version>
-        <cucumber.version>7.12.0</cucumber.version>
+        <cucumber.version>7.13.0</cucumber.version>
         <junit.version>5.9.3</junit.version>
         <log4j.vesion>2.19.0</log4j.vesion>
         <aspectj.version>1.8.10</aspectj.version>

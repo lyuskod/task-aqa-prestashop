@@ -1,9 +1,9 @@
-package steps;
+package com.github.prestashop.steps;
 
 import com.github.prestashop.extensions.BooleanExtensions;
 import com.github.prestashop.helpers.AssertHelper;
 import io.cucumber.java.en.Then;
-import pages.pages.ArtPage;
+import com.github.prestashop.pages.pages.ArtPage;
 
 public class ArtPageSteps {
 

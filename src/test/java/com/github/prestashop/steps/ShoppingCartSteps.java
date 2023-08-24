@@ -1,14 +1,14 @@
-package steps;
+package com.github.prestashop.steps;
 
-import dto.ProductAddedModel;
+import com.github.prestashop.dto.ProductAddedModel;
 import com.github.prestashop.extensions.BooleanExtensions;
 import com.github.prestashop.helpers.AllureHelper;
 import com.github.prestashop.helpers.AssertHelper;
 import com.github.prestashop.helpers.ModelHelper;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.forms.ProductAddedModalForm;
-import pages.forms.ProductsForm;
+import com.github.prestashop.pages.forms.ProductAddedModalForm;
+import com.github.prestashop.pages.forms.ProductsForm;
 import com.github.prestashop.services.driver.AutomationService;
 
 public class ShoppingCartSteps {
@@ -20,7 +20,7 @@ public class ShoppingCartSteps {
         this.productAddedModalForm = new ProductAddedModalForm();
     }
 
-    @When("^I add product on the '(\\d+)' position choosing '(\\d+)' quantity to shopping cart$")
+    @When("^I add product on the '{int}' position choosing '{int}' as quantity to shopping cart$")
     public void addProductsToShoppingCart(int productPosition, int quantity) {
         var product = this.productsForm.selectProductByIndex(productPosition);
         product.enterQuantity(quantity);

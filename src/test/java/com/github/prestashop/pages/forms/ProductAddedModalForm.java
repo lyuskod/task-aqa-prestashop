@@ -1,4 +1,4 @@
-package pages.forms;
+package com.github.prestashop.pages.forms;
 
 import com.github.prestashop.interfaces.element.IBaseElement;
 import com.github.prestashop.interfaces.enums.IEnumParser;

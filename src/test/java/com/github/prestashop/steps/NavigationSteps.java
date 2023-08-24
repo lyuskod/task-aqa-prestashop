@@ -1,8 +1,8 @@
-package steps;
+package com.github.prestashop.steps;
 
 import io.cucumber.java.en.When;
-import pages.pages.MainPage;
-import pages.forms.TopMenu;
+import com.github.prestashop.pages.pages.MainPage;
+import com.github.prestashop.pages.forms.TopMenu;
 import com.github.prestashop.services.driver.AutomationService;
 import io.cucumber.java.en.Given;
 
@@ -21,7 +21,7 @@ public class NavigationSteps {
                 .browser().go("https://demo.prestashop.com/#/en/front");
     }
 
-    @When("^I click '(Clothes|Accessories|Art)' top menu item$")
+    @When("^I click on '(Clothes|Accessories|Art)' top menu item$")
     public void selectTopMenuItemStep(String topMenuItem)
     {
         var element = TopMenu.TopMenuElements.parse(topMenuItem);

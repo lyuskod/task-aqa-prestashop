@@ -1,4 +1,4 @@
-package pages.forms;
+package com.github.prestashop.pages.forms;
 
 import org.openqa.selenium.By;
 import com.github.prestashop.services.element.Label;

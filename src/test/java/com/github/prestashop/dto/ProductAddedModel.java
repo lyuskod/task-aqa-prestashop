@@ -1,4 +1,4 @@
-package dto;
+package com.github.prestashop.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

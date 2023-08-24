@@ -1,7 +1,6 @@
 package com.github.prestashop.services.driver;
 
 import com.github.prestashop.services.element.*;
-import services.element.*;
 import com.github.prestashop.interfaces.element.IElementsCollection;
 import org.openqa.selenium.By;
 
