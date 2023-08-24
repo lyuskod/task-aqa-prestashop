@@ -1,8 +1,8 @@
 package steps;
 
-import services.driver.AutomationService;
-import extentions.BooleanExtensions;
-import helpers.AssertHelper;
+import com.github.prestashop.services.driver.AutomationService;
+import com.github.prestashop.extensions.BooleanExtensions;
+import com.github.prestashop.helpers.AssertHelper;
 import io.cucumber.java.en.Then;
 import pages.pages.MainPage;
 
@@ -16,7 +16,7 @@ public class MainPageSteps {
 
     @Then("I verify that Main Page is opened")
     public void verifyMainPageStateStep() {
-        AutomationService.get().browser().getOriginDriver().switchTo().frame("framelive");
+        AutomationService.get().browser().getOriginalDriver().switchTo().frame("framelive");
         boolean actualState = this.mainPage.isOpened();
         AssertHelper.assertEquals(actualState, true,
                 String.format("The '%s' page is %sopened", this.mainPage.getFormName(),

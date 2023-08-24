@@ -1,7 +1,7 @@
 package steps;
 
-import extentions.BooleanExtensions;
-import helpers.AssertHelper;
+import com.github.prestashop.extensions.BooleanExtensions;
+import com.github.prestashop.helpers.AssertHelper;
 import io.cucumber.java.en.Then;
 import pages.pages.ArtPage;
 

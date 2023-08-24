@@ -1,8 +1,8 @@
 package pages.forms;
 
 import org.openqa.selenium.By;
-import services.element.Label;
-import services.page.BaseForm;
+import com.github.prestashop.services.element.Label;
+import com.github.prestashop.services.page.BaseForm;
 
 public class ProductsForm extends BaseForm {
 

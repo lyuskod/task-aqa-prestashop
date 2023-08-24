@@ -1,19 +1,15 @@
 package steps;
 
 import dto.ProductAddedModel;
-import extentions.BooleanExtensions;
-import helpers.AllureHelper;
-import helpers.AssertHelper;
-import helpers.ModelHelper;
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.Transpose;
+import com.github.prestashop.extensions.BooleanExtensions;
+import com.github.prestashop.helpers.AllureHelper;
+import com.github.prestashop.helpers.AssertHelper;
+import com.github.prestashop.helpers.ModelHelper;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.platform.commons.util.ReflectionUtils;
 import pages.forms.ProductAddedModalForm;
-import pages.forms.ProductForm;
 import pages.forms.ProductsForm;
-import services.driver.AutomationService;
+import com.github.prestashop.services.driver.AutomationService;
 
 public class ShoppingCartSteps {
     private final ProductsForm productsForm;

@@ -3,7 +3,7 @@ package steps;
 import io.cucumber.java.en.When;
 import pages.pages.MainPage;
 import pages.forms.TopMenu;
-import services.driver.AutomationService;
+import com.github.prestashop.services.driver.AutomationService;
 import io.cucumber.java.en.Given;
 
 public class NavigationSteps {

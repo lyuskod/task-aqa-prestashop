@@ -1,7 +1,7 @@
 package pages.pages;
 
 import org.openqa.selenium.By;
-import services.page.BaseForm;
+import com.github.prestashop.services.page.BaseForm;
 
 public class ArtPage extends BaseForm {
     public ArtPage() {

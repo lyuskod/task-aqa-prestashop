@@ -1,15 +1,9 @@
 package pages.forms;
 
-import interfaces.element.IBaseElement;
-import interfaces.enums.IEnumParser;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.openqa.selenium.By;
-import services.element.Button;
-import services.element.TextBox;
-import services.page.BaseForm;
-
-import java.util.HashMap;
+import com.github.prestashop.services.element.Button;
+import com.github.prestashop.services.element.TextBox;
+import com.github.prestashop.services.page.BaseForm;
 
 public class ProductForm extends BaseForm {
 

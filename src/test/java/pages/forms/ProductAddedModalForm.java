@@ -1,12 +1,12 @@
 package pages.forms;
 
-import interfaces.element.IBaseElement;
-import interfaces.enums.IEnumParser;
+import com.github.prestashop.interfaces.element.IBaseElement;
+import com.github.prestashop.interfaces.enums.IEnumParser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.openqa.selenium.By;
-import services.element.Text;
-import services.page.BaseForm;
+import com.github.prestashop.services.element.Text;
+import com.github.prestashop.services.page.BaseForm;
 
 import java.util.HashMap;
 

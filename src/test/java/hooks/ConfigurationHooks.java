@@ -1,6 +1,6 @@
 package hooks;
 
-import services.driver.AutomationService;
+import com.github.prestashop.services.driver.AutomationService;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
