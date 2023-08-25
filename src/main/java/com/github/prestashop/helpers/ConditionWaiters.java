@@ -1,8 +1,8 @@
 package com.github.prestashop.helpers;
 
 import com.github.prestashop.services.driver.AutomationService;
-import com.github.prestashop.services.element.BaseElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,9 +18,17 @@ public class ConditionWaiters {
                 .until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public static void waitUntilVisible(By locator, Duration timeout)
-    {
+    public static void waitUntilVisible(By locator, Duration timeout) {
         new WebDriverWait(AutomationService.get().browser().getOriginalDriver(), timeout)
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
+    public static void waitUntilNotDisplayed(By locator, Duration timeout) {
+        try {
+            new WebDriverWait(AutomationService.get().browser().getOriginalDriver(), timeout)
+                    .until(ExpectedConditions.invisibilityOfElementLocated(locator));
+        } catch (TimeoutException ignored) {
+        }
+    }
 }
+
