@@ -4,7 +4,10 @@ import com.github.prestashop.services.element.*;
 import com.github.prestashop.interfaces.element.IElementsCollection;
 import org.openqa.selenium.By;
 
-public class ElementsCollection implements IElementsCollection {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ElementsCollection<T extends BaseElement> implements IElementsCollection {
     private final BaseDriver driver;
 
     public ElementsCollection(BaseDriver driver) {
@@ -35,4 +38,18 @@ public class ElementsCollection implements IElementsCollection {
     public TextBox getTextBox(By locator, String name) {
         return new TextBox(locator, name);
     }
+
+    @Override
+    public List<T> getElements(String xPath, String name) {
+        var baseElements = new ArrayList<T>();
+        var webElements = this.driver.getOriginalDriver().findElements(By.xpath(xPath));
+        for (var index = 0; index < webElements.size(); index++) {
+            var baseElementLocator = String.format("(%s)[%d]", xPath, index + 1);
+            var baseElementName = String.format("%s [%d]", name, index + 1);
+            var baseElement = (T) (new Label(By.xpath(baseElementLocator), baseElementName));
+            baseElements.add(baseElement);
+        }
+        return baseElements;
+    }
+
 }

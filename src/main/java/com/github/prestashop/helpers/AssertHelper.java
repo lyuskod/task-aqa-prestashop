@@ -17,6 +17,11 @@ public class AssertHelper {
         Assertions.assertEquals(expected, actual, message);
     }
 
+    public static void assertEquals(int actual, int expected, String message, boolean takeScreenshot) {
+        AssertHelper.takeScreenshotIfTrue(takeScreenshot);
+        Assertions.assertEquals(expected, actual, message);
+    }
+
     private static void takeScreenshotIfTrue(boolean take) {
         if (take) {
             AllureHelper.takeAndAttachScreenShot();

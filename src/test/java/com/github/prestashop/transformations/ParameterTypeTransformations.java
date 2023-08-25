@@ -4,12 +4,12 @@ import com.github.prestashop.helpers.PageHelper;
 import io.cucumber.java.ParameterType;
 
 public class ParameterTypeTransformations {
-    @ParameterType("opened|not opened")
+    @ParameterType("opened|not opened|closed")
     public boolean isOpenedTransform(String value) {
-        return !value.contains("not");
+        return value.equals("opened");
     }
 
-    @ParameterType("Main|Art|Product Added")
+    @ParameterType("Main|Art|Product Added|Accessories|Shopping Cart")
     public PageHelper.Pages pageNameTransform(String pageName) {
         return PageHelper.Pages.parse(pageName);
     }

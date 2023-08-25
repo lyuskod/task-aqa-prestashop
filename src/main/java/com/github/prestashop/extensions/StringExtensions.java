@@ -3,6 +3,7 @@ package com.github.prestashop.extensions;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class StringExtensions {
     private static final int LENGTH = 10;
@@ -31,5 +32,15 @@ public class StringExtensions {
 
     public static String generateRandomString() {
         return generateRandomString(LENGTH, USE_LETTERS, USE_NUMBERS, StringCaseFormat.LOWER_CASE);
+    }
+
+    public static int extractNumberFromString(String str) {
+        String output = null;
+        var pattern = Pattern.compile(".*(\\d+).*");
+        var matcher = pattern.matcher(str);
+        if (matcher.matches()) {
+            output = matcher.group(1);
+        }
+        return Integer.parseInt(output);
     }
 }

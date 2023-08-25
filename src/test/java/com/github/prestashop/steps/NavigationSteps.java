@@ -1,5 +1,6 @@
 package com.github.prestashop.steps;
 
+import com.github.prestashop.pages.frames.MainFrame;
 import io.cucumber.java.en.When;
 import com.github.prestashop.pages.pages.MainPage;
 import com.github.prestashop.pages.forms.TopMenu;
@@ -24,7 +25,9 @@ public class NavigationSteps {
     @When("I click on '(Clothes|Accessories|Art)' top menu item$")
     public void selectTopMenuItemStep(String topMenuItem)
     {
-        var element = TopMenu.TopMenuElements.parse(topMenuItem);
-        this.mainPage.topMenu().clickTopMenuElement(element);
+        MainFrame.doInFrame((arg) -> {
+            var element = TopMenu.TopMenuElements.parse(topMenuItem);
+            this.mainPage.topMenu().clickTopMenuElement(element);
+        });
     }
 }

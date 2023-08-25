@@ -9,7 +9,7 @@
                     pattern="[%d{yyyy-MM-dd HH:mm:ss}] - %-5p - %m%n" />
         </Console>
         <!-- File appender configuration -->
-        <File name="LogToFile" fileName="logs/test.log">
+        <File name="LogToFile" fileName="target/log4j2/test.log">
             <PatternLayout>
                 <PatternLayout
                         pattern="[%d{yyyy-MM-dd HH:mm:ss}] - %-5p - %m%n" />

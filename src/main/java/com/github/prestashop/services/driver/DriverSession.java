@@ -4,7 +4,7 @@ import com.github.prestashop.interfaces.driver.IDriverSession;
 import org.openqa.selenium.WebDriver;
 
 public class DriverSession implements IDriverSession {
-    private final WebDriver driver;
+    private WebDriver driver;
 
     public DriverSession(WebDriver driver) {
         this.driver = driver;
@@ -12,6 +12,6 @@ public class DriverSession implements IDriverSession {
 
     @Override
     public void end() {
-        this.driver.quit();
+        this.driver.close();
     }
 }

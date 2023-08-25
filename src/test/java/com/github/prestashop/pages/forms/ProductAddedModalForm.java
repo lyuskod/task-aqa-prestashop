@@ -4,7 +4,9 @@ import com.github.prestashop.interfaces.cucumber.IElementsHelper;
 import com.github.prestashop.interfaces.element.IBaseElement;
 import com.github.prestashop.interfaces.enums.IEnumParser;
 import com.github.prestashop.pages.PageProxy;
+import com.github.prestashop.services.driver.AutomationService;
 import com.github.prestashop.services.element.BaseElement;
+import com.github.prestashop.services.element.Button;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -15,7 +17,11 @@ import java.util.HashMap;
 
 public class ProductAddedModalForm extends PageProxy implements IElementsHelper {
 
-    private final Text quantityTxt = new Text(By.cssSelector(".product-quantity strong"), "Quantity value");
+    private final Text quantityTxt = AutomationService.get()
+            .elements().getTextElement(By.cssSelector(".product-quantity strong"), "Quantity value");
+
+    private final Button continueShoppingBtn = AutomationService.get()
+            .elements().getButton(By.cssSelector("button[class='btn btn-secondary']"), "'Continue shopping' button");
 
     @AllArgsConstructor
     public enum ProductAttributes implements IEnumParser {
@@ -45,8 +51,8 @@ public class ProductAddedModalForm extends PageProxy implements IElementsHelper 
         super(By.cssSelector(".cart-content-btn .btn-secondary"), "'Proceed to checkout' button");
     }
 
-    public String getAttributeValue(String attribute)
+    public void clickContinueShopping()
     {
-        return ((Text) elements.get(attribute)).getTextValue();
+        this.continueShoppingBtn.click();
     }
 }

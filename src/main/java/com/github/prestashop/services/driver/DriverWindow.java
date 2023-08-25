@@ -6,6 +6,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Window;
 
+import java.util.function.Consumer;
+
 public class DriverWindow implements IDriverWindow {
 
     private final WebDriver driver;
@@ -34,5 +36,12 @@ public class DriverWindow implements IDriverWindow {
     @Override
     public void switchToDefaultContent() {
         this.driver.switchTo().defaultContent();
+    }
+
+    @Override
+    public void doInFrame(String nameOrIdCss, Consumer<String> action) {
+        AutomationService.get().browser().window().switchToFrame(nameOrIdCss);
+        action.accept(nameOrIdCss);
+        AutomationService.get().browser().window().switchToDefaultContent();
     }
 }

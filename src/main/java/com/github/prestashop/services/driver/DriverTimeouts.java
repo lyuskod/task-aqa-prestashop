@@ -8,7 +8,8 @@ import java.time.Duration;
 
 public class DriverTimeouts implements IDriverTimeouts {
     public enum PredefinedTimeouts {
-        MIN_1(Duration.ofMinutes(1));
+        MIN_1(Duration.ofMinutes(1)),
+        SEC_10(Duration.ofSeconds(10));
 
         private final Duration duration;
 
@@ -49,8 +50,8 @@ public class DriverTimeouts implements IDriverTimeouts {
     }
 
     public void setDefaultTimeouts() {
-        this.timeouts.implicitlyWait(PredefinedTimeouts.MIN_1.getDuration());
-        this.timeouts.pageLoadTimeout(PredefinedTimeouts.MIN_1.getDuration());
-        this.timeouts.scriptTimeout(PredefinedTimeouts.MIN_1.getDuration());
+        this.timeouts.implicitlyWait(PredefinedTimeouts.SEC_10.getDuration());
+        this.timeouts.pageLoadTimeout(PredefinedTimeouts.SEC_10.getDuration());
+        this.timeouts.scriptTimeout(PredefinedTimeouts.SEC_10.getDuration());
     }
 }
