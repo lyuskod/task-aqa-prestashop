@@ -14,7 +14,7 @@ public class BrowserFactory {
 
     public static BaseDriver getDriver(BrowserTypes type) {
         WebDriverManager.firefoxdriver().setup();
-        BaseDriver driver = new FirefoxDriver(new org.openqa.selenium.firefox.FirefoxDriver());
+        var driver = new FirefoxDriver(new org.openqa.selenium.firefox.FirefoxDriver());
         return driver;
     }
 }

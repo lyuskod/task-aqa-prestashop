@@ -1,22 +1,22 @@
 package com.github.prestashop.pages.forms;
 
-import com.github.prestashop.pages.PageProxy;
-import org.openqa.selenium.By;
-import com.github.prestashop.services.element.Label;
+import com.github.prestashop.services.driver.Automation;
 import com.github.prestashop.services.page.BaseForm;
+import org.openqa.selenium.By;
 
-public class ProductsForm extends PageProxy {
+public class ProductsForm extends BaseForm {
+    private final String productLocatorXPathToFormat;
 
-    private final ProductForm productForm;
     public ProductsForm() {
         super(By.xpath("//div[@id='js-product-list']/div[contains(@class,'products row')]"), "Products thumbnail");
-        this.productForm = new ProductForm();
+        this.productLocatorXPathToFormat = "(//article[@data-id-product])[%d]";
     }
 
-    public ProductForm selectProductByIndex(int index)
-    {
-        var productLocator = String.format("(//article[@data-id-product])[%d]", index);
-        new Label(By.xpath(productLocator), "Product with index = " + index).click();
-        return this.productForm;
+    public void selectProductByIndex(int index) {
+        var productLocator = String.format(this.productLocatorXPathToFormat, index);
+        Automation.get()
+                .elements()
+                .getLabel(By.xpath(productLocator), "Product with index = " + index)
+                .click();
     }
 }

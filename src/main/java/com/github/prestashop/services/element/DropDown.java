@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 public class DropDown extends BaseElement {
-
     private final BaseLogger logger = BaseLogger.getLogger(DropDown.class);
 
     public DropDown(By locator, String name) {

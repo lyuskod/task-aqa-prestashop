@@ -10,6 +10,4 @@ public interface IBaseElement {
     void click();
 
     boolean isDisplayed();
-
-    String getCssValue(String propertyName);
 }

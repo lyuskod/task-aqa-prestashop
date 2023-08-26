@@ -1,4 +1,4 @@
-package com.github.prestashop.steps.assertions;
+package com.github.prestashop.steps;
 
 import com.github.prestashop.extensions.BooleanExtensions;
 import com.github.prestashop.helpers.AssertHelper;
@@ -9,12 +9,11 @@ import io.cucumber.java.en.Then;
 
 import java.time.Duration;
 
-public class CommonAssertions {
+public class CommonSteps {
     @Then("I verify that '{pageNameTransform}' page/form/modal is '{isOpenedTransform}'")
     public void verifyPageStateStep(PageHelper.Pages page, boolean expectedState) {
         MainFrame.doInFrame((arg) -> {
-            if (expectedState)
-            {
+            if (expectedState) {
                 ConditionWaiters.waitUntilVisible(page.getPageInstance().getLocator(), Duration.ofSeconds(10));
             }
             boolean actualState = page.getPageInstance().isOpened();

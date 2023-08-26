@@ -4,7 +4,6 @@ import com.github.prestashop.services.logger.BaseLogger;
 import org.openqa.selenium.By;
 
 public class Text extends BaseElement {
-
     private final BaseLogger logger = BaseLogger.getLogger(Text.class);
 
     public Text(By locator, String name) {

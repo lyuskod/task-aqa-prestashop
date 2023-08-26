@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 
-public interface IElementsCollection<T> {
+public interface IElementCreator<T> {
     Button getButton(By locator, String name);
 
     Label getLabel(By locator, String name);
@@ -18,7 +18,11 @@ public interface IElementsCollection<T> {
 
     DropDown getDropDown(By locator, String name);
 
-    ClickableCheckbox getClickableCheckbox(By locator, String name);
+    CheckBox getCheckBox(By locator, String name);
+
+    RadioButton getRadioButton(By locator, String name);
+
+    ClickableCheckBox getClickableCheckbox(By locator, String name);
 
     ClickableRadioButton getClickableRadioButton(By locator, String name);
 

@@ -1,10 +1,9 @@
 package com.github.prestashop.services.element;
 
 import com.github.prestashop.helpers.ConditionWaiters;
-import com.github.prestashop.interfaces.element.IJavaScriptActions;
-import com.github.prestashop.services.driver.AutomationService;
-import com.github.prestashop.services.driver.BaseDriver;
 import com.github.prestashop.interfaces.element.IBaseElement;
+import com.github.prestashop.interfaces.element.IJavaScriptActions;
+import com.github.prestashop.services.driver.Automation;
 import com.github.prestashop.services.logger.BaseLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -27,14 +26,14 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
 
     protected WebElement findElement() {
         logger.debug(String.format("[READY]: Find '%s' element by locator: %s", this.name, this.locator));
-        var element = AutomationService.get().browser().getOriginalDriver().findElement(this.locator);
+        var element = Automation.get().browser().getOriginalDriver().findElement(this.locator);
         logger.debug(String.format("[SUCCESS]: Find '%s' element by locator: %s. Element is found", this.name, this.locator));
         return element;
     }
 
     protected List<WebElement> findElements() {
         logger.debug(String.format("[READY]: Find '%s' multiple elements by locator: %s", this.name, this.locator));
-        var elements = AutomationService.get().browser().getOriginalDriver().findElements(this.locator);
+        var elements = Automation.get().browser().getOriginalDriver().findElements(this.locator);
         logger.debug(String.format("[SUCCESS]: Find '%s' multiple elements by locator: %s. Elements count found: [%d]", this.name, this.locator, elements.size()));
         return elements;
     }
@@ -58,11 +57,10 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
     }
 
     @Override
-    public void jsClick()
-    {
+    public void jsClick() {
         logger.info(String.format("[READY]: JS-Click on '%s' element with locator: %s", this.name, this.locator));
         var element = findElement();
-        var executor = (JavascriptExecutor) AutomationService.get().browser().getOriginalDriver();
+        var executor = (JavascriptExecutor) Automation.get().browser().getOriginalDriver();
         executor.executeScript("arguments[0].click();", element);
         logger.info(String.format("[SUCCESS]: JS-Click on '%s' element with locator: %s", this.name, this.locator));
     }
@@ -72,19 +70,11 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
         logger.info(String.format("[READY]: Get element state for '%s' element with locator: %s", this.name, this.locator));
         var isDisplayed = false;
         try {
-//            var elementFound = findElements().size() > 0;
-            var elementDisplayed = findElement().isDisplayed();
-            isDisplayed = elementDisplayed; //&& elementDisplayed;
+            isDisplayed = findElement().isDisplayed(); //&& elementDisplayed;
         } catch (Exception exception) {
             logger.warn(String.format("[WARN]: Failed attempt to get element state for '%s' element with locator: %s. Error message: %s", this.name, this.locator, exception.getMessage()));
         }
         logger.info(String.format("[SUCCESS]: Get element state for '%s' element with locator: %s. Displayed: %s", this.name, this.locator, String.valueOf(isDisplayed)));
         return isDisplayed;
-    }
-
-    @Override
-    public String getCssValue(String propertyName)
-    {
-        return findElement().getCssValue(propertyName);
     }
 }

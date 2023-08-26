@@ -1,6 +1,6 @@
 package com.github.prestashop.pages.forms;
 
-import com.github.prestashop.pages.PageProxy;
+import com.github.prestashop.services.driver.Automation;
 import com.github.prestashop.services.element.MenuItem;
 import com.github.prestashop.interfaces.element.IBaseElement;
 import com.github.prestashop.interfaces.enums.IEnumParser;
@@ -11,7 +11,16 @@ import com.github.prestashop.services.page.BaseForm;
 
 import java.util.HashMap;
 
-public class TopMenu extends PageProxy {
+public class TopMenu extends BaseForm {
+    private final MenuItem clothesMenuItem = Automation.get()
+            .elements()
+            .getMenuItem(By.cssSelector("#top-menu > #category-3"), "\"Clothes\" menu item");
+    private final MenuItem accessoriesMenuItem = Automation.get()
+            .elements()
+            .getMenuItem(By.cssSelector("#top-menu > #category-6"), "\"Accessories\" menu item");
+    private final MenuItem artMenuItem = Automation.get()
+            .elements()
+            .getMenuItem(By.cssSelector("#top-menu > #category-9"), "\"Art\" menu item");
 
     @AllArgsConstructor
     public enum TopMenuElements implements IEnumParser {
@@ -27,12 +36,7 @@ public class TopMenu extends PageProxy {
         }
     }
 
-    private final MenuItem clothesMenuItem = new MenuItem(By.cssSelector("#top-menu > #category-3"), "'Clothes' menu item");
-    private final MenuItem accessoriesMenuItem = new MenuItem(By.cssSelector("#top-menu > #category-6"), "'Accessories' menu item");
-    private final MenuItem artMenuItem = new MenuItem(By.cssSelector("#top-menu > #category-9"), "'Art' menu item");
-
-    private final HashMap<String, IBaseElement> elements = new HashMap<>()
-    {
+    private final HashMap<String, IBaseElement> elements = new HashMap<>() {
         {
             put(TopMenuElements.CLOTHES.elementName, clothesMenuItem);
             put(TopMenuElements.ACCESSORIES.getElementName(), accessoriesMenuItem);
@@ -44,8 +48,7 @@ public class TopMenu extends PageProxy {
         super(By.cssSelector("#top-menu"), "Top Menu");
     }
 
-    public void clickTopMenuElement(TopMenuElements menuItem)
-    {
+    public void clickTopMenuElement(TopMenuElements menuItem) {
         elements.get(menuItem.elementName).click();
     }
 }

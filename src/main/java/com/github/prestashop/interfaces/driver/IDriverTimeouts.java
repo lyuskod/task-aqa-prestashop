@@ -7,7 +7,5 @@ public interface IDriverTimeouts {
 
     void setPageLoadTime(Duration duration);
 
-    void setTimeouts(Duration implicitTimeout, Duration pageLoadTimeout);
-
     void setScriptTimeout(Duration duration);
 }

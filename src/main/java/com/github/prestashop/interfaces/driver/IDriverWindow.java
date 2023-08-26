@@ -1,7 +1,6 @@
 package com.github.prestashop.interfaces.driver;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public interface IDriverWindow {
     void setFullScreen();

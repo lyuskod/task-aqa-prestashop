@@ -6,8 +6,10 @@ import lombok.Setter;
 
 @AllArgsConstructor
 public class ElementDto {
-    @Getter @Setter
+    @Getter
+    @Setter
     private String elementName;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String elementValue;
 }

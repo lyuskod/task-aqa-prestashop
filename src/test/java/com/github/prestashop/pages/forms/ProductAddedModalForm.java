@@ -1,30 +1,30 @@
 package com.github.prestashop.pages.forms;
 
-import com.github.prestashop.interfaces.cucumber.IElementsHelper;
-import com.github.prestashop.interfaces.element.IBaseElement;
+import com.github.prestashop.interfaces.cucumber.IElementsMap;
 import com.github.prestashop.interfaces.enums.IEnumParser;
-import com.github.prestashop.pages.PageProxy;
-import com.github.prestashop.services.driver.AutomationService;
+import com.github.prestashop.services.driver.Automation;
 import com.github.prestashop.services.element.BaseElement;
 import com.github.prestashop.services.element.Button;
+import com.github.prestashop.services.page.BaseForm;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.openqa.selenium.By;
 import com.github.prestashop.services.element.Text;
-import com.github.prestashop.services.page.BaseForm;
 
 import java.util.HashMap;
 
-public class ProductAddedModalForm extends PageProxy implements IElementsHelper {
+public class ProductAddedModalForm extends BaseForm implements IElementsMap {
+    private final Text quantityText = Automation.get()
+            .elements()
+            .getTextElement(By.cssSelector(".product-quantity strong"), "\"Quantity\" text");
 
-    private final Text quantityTxt = AutomationService.get()
-            .elements().getTextElement(By.cssSelector(".product-quantity strong"), "Quantity value");
+    private final Button continueShoppingButton = Automation.get()
+            .elements()
+            .getButton(By.cssSelector("button[class='btn btn-secondary']"), "\"Continue shopping\" button");
 
-    private final Button continueShoppingBtn = AutomationService.get()
-            .elements().getButton(By.cssSelector("button[class='btn btn-secondary']"), "'Continue shopping' button");
-
-    private final Button proceedToCheckoutBtn = AutomationService.get()
-            .elements().getButton(By.cssSelector("div.cart-content-btn a[class='btn btn-primary']"), "'Proceed to checkout' button");
+    private final Button proceedToCheckoutButton = Automation.get()
+            .elements()
+            .getButton(By.cssSelector("div.cart-content-btn a[class='btn btn-primary']"), "\"Proceed to checkout\" button");
 
     @AllArgsConstructor
     public enum ProductAttributes implements IEnumParser {
@@ -38,10 +38,9 @@ public class ProductAddedModalForm extends PageProxy implements IElementsHelper 
         }
     }
 
-    private final HashMap<String, BaseElement> elements = new HashMap<>()
-    {
+    private final HashMap<String, BaseElement> elements = new HashMap<>() {
         {
-            put(ProductAttributes.QUANTITY.elementName, quantityTxt);
+            put(ProductAttributes.QUANTITY.elementName, quantityText);
         }
     };
 
@@ -51,16 +50,14 @@ public class ProductAddedModalForm extends PageProxy implements IElementsHelper 
     }
 
     public ProductAddedModalForm() {
-        super(By.cssSelector(".cart-content-btn .btn-secondary"), "'Proceed to checkout' button");
+        super(By.cssSelector(".cart-content-btn .btn-secondary"), "Product added form");
     }
 
-    public void clickContinueShopping()
-    {
-        this.continueShoppingBtn.click();
+    public void continueShopping() {
+        this.continueShoppingButton.click();
     }
 
-    public void clickProceedToCheckout()
-    {
-        this.proceedToCheckoutBtn.click();
+    public void proceedToCheckout() {
+        this.proceedToCheckoutButton.click();
     }
 }

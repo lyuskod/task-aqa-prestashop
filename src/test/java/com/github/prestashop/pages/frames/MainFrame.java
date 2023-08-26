@@ -1,6 +1,6 @@
 package com.github.prestashop.pages.frames;
 
-import com.github.prestashop.services.driver.AutomationService;
+import com.github.prestashop.services.driver.Automation;
 import com.github.prestashop.services.element.BaseElement;
 import org.openqa.selenium.By;
 
@@ -13,6 +13,6 @@ public class MainFrame extends BaseElement {
     }
 
     public static void doInFrame(Consumer action) {
-        AutomationService.get().browser().window().doInFrame("framelive", action);
+        Automation.get().browser().window().doInFrame("framelive", action);
     }
 }

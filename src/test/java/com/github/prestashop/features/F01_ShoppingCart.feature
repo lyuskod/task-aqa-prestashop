@@ -195,14 +195,14 @@ Feature: F01_ShoppingCart
     Then I verify that 'Payment' page is 'opened'
 
     When I select 'Pay by bank wire' option on Payment page
-    When I check Terms and Conditions checkbox on Payment page
+    And I check Terms and Conditions checkbox on Payment page
     And I click Place Order button on Payment page
     Then I verify that 'Order confirmed' page is 'opened'
     And I verify that '1' product is stored in ordered products table on Order confirmed page
 
     When I click on '<Product Type>' top menu item
     Then I verify that '<Product Type>' page is 'opened'
-    Then I verify that Cart displays '0' as products added to Shopping Cart
+    And I verify that Cart displays '0' as products added to Shopping Cart
 
     Examples:
       | Product Type |

@@ -1,10 +1,9 @@
 package com.github.prestashop.interfaces.driver;
 
-import org.openqa.selenium.WebDriver;
 import com.github.prestashop.services.driver.DriverSession;
 import com.github.prestashop.services.driver.DriverTimeouts;
 import com.github.prestashop.services.driver.DriverWindow;
-import com.github.prestashop.services.driver.DriverWindowHandles;
+import org.openqa.selenium.WebDriver;
 
 public interface IBaseDriver {
     void go(String url);
@@ -12,8 +11,6 @@ public interface IBaseDriver {
     DriverWindow window();
 
     DriverTimeouts timeouts();
-
-    DriverWindowHandles windowHandles();
 
     DriverSession session();
 

@@ -1,16 +1,16 @@
 package com.github.prestashop.services.driver;
 
 import com.github.prestashop.services.element.*;
-import com.github.prestashop.interfaces.element.IElementsCollection;
+import com.github.prestashop.interfaces.element.IElementCreator;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElementsCollection<T extends BaseElement> implements IElementsCollection {
+public class ElementCreator<T extends BaseElement> implements IElementCreator {
     private final BaseDriver driver;
 
-    public ElementsCollection(BaseDriver driver) {
+    public ElementCreator(BaseDriver driver) {
         this.driver = driver;
     }
 
@@ -45,8 +45,18 @@ public class ElementsCollection<T extends BaseElement> implements IElementsColle
     }
 
     @Override
-    public ClickableCheckbox getClickableCheckbox(By locator, String name) {
-        return new ClickableCheckbox(locator, name);
+    public CheckBox getCheckBox(By locator, String name) {
+        return new CheckBox(locator, name);
+    }
+
+    @Override
+    public RadioButton getRadioButton(By locator, String name) {
+        return new RadioButton(locator, name);
+    }
+
+    @Override
+    public ClickableCheckBox getClickableCheckbox(By locator, String name) {
+        return new ClickableCheckBox(locator, name);
     }
 
     @Override

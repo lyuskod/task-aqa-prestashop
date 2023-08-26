@@ -1,30 +1,32 @@
 package com.github.prestashop.pages.pages;
 
-import com.github.prestashop.services.driver.AutomationService;
+import com.github.prestashop.services.driver.Automation;
 import com.github.prestashop.services.element.Button;
-import com.github.prestashop.services.element.Label;
+import com.github.prestashop.services.element.ClickableRadioButton;
 import com.github.prestashop.services.page.BaseForm;
 import org.openqa.selenium.By;
 
 public class ShippingMethodPage extends BaseForm {
 
-    private final Label clickAndCollectLbl = AutomationService.get()
-            .elements().getLabel(By.cssSelector("[for='delivery_option_1']"), "Click and collect");
+    private final ClickableRadioButton clickAndCollectRadioButton = Automation.get()
+            .elements()
+            .getClickableRadioButton(By.cssSelector("[for='delivery_option_1']"), "\"Click and collect\" radio button");
 
-    private final Button continueBtn = AutomationService.get()
-            .elements().getButton(By.cssSelector("button[name='confirmDeliveryOption']"), "Continue");
+    private final Button continueButton = Automation.get()
+            .elements()
+            .getButton(By.cssSelector("button[name='confirmDeliveryOption']"), "\"Continue\" button");
 
     public ShippingMethodPage() {
         super(By.cssSelector("#checkout-delivery-step"), "Shipping method");
     }
 
-    public void selectClickAndCollectBtn()
+    public void selectClickAndCollectShippingMethod()
     {
-        this.clickAndCollectLbl.click();
+        this.clickAndCollectRadioButton.click();
     }
 
     public void clickContinueBtn()
     {
-        this.continueBtn.click();
+        this.continueButton.click();
     }
 }

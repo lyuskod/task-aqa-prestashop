@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 public class TextBox extends BaseElement {
-
     private final BaseLogger logger = BaseLogger.getLogger(TextBox.class);
 
     public TextBox(By locator, String name) {

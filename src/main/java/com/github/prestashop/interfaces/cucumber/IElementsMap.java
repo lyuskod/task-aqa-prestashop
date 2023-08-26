@@ -4,6 +4,6 @@ import com.github.prestashop.services.element.BaseElement;
 
 import java.util.HashMap;
 
-public interface IElementsHelper {
+public interface IElementsMap {
     HashMap<String, BaseElement> getElementsMap();
 }

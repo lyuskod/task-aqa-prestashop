@@ -1,33 +1,31 @@
 package com.github.prestashop.steps;
 
-import com.github.prestashop.pages.frames.MainFrame;
-import io.cucumber.java.en.When;
-import com.github.prestashop.pages.pages.MainPage;
 import com.github.prestashop.pages.forms.TopMenu;
-import com.github.prestashop.services.driver.AutomationService;
+import com.github.prestashop.pages.frames.MainFrame;
+import com.github.prestashop.services.driver.Automation;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 
 public class NavigationSteps {
 
-    private final MainPage mainPage;
+    private final TopMenu topMenu;
 
-    public NavigationSteps()
-    {
-        this.mainPage = new MainPage();
+    public NavigationSteps() {
+        this.topMenu = new TopMenu();
     }
 
     @Given("I open app")
-    public void openAppStep() throws Exception {
-        AutomationService.get()
-                .browser().go("https://demo.prestashop.com/#/en/front");
+    public void openAppStep() {
+        Automation.get()
+                .browser()
+                .go("https://demo.prestashop.com/#/en/front");
     }
 
     @When("I click on '(Clothes|Accessories|Art)' top menu item$")
-    public void selectTopMenuItemStep(String topMenuItem)
-    {
+    public void selectTopMenuItemStep(String topMenuItem) {
         MainFrame.doInFrame((arg) -> {
             var element = TopMenu.TopMenuElements.parse(topMenuItem);
-            this.mainPage.topMenu().clickTopMenuElement(element);
+            this.topMenu.clickTopMenuElement(element);
         });
     }
 }

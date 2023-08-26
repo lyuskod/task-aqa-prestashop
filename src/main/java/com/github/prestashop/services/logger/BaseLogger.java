@@ -18,8 +18,7 @@ public final class BaseLogger {
         this.log4j2.debug(message);
     }
 
-    public void warn(String message)
-    {
+    public void warn(String message) {
         this.log4j2.warn(message);
     }
 
@@ -27,8 +26,7 @@ public final class BaseLogger {
         this.log4j2.info(message);
     }
 
-    public void error(String message)
-    {
+    public void error(String message) {
         this.log4j2.error(message);
     }
 }
