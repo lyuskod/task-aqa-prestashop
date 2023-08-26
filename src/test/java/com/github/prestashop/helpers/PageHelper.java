@@ -18,7 +18,12 @@ public class PageHelper {
         Accessories(new AccessoriesPage()),
         Clothes(new ClothesPage()),
         Shopping_Cart(new ShoppingCartPage()),
-        Product_Added(new ProductAddedModalForm());
+        Personal_Information(new PersonalInformationPage()),
+        Product_Added(new ProductAddedModalForm()),
+        Addresses(new AddressesPage()),
+        Shipping_Method(new ShippingMethodPage()),
+        Payment(new PaymentPage()),
+        Order_confirmed(new OrderConfirmedPage());
 
         @Getter
         private final BaseForm pageInstance;

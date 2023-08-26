@@ -1,17 +1,19 @@
 package com.github.prestashop.services.element;
 
 import com.github.prestashop.helpers.ConditionWaiters;
+import com.github.prestashop.interfaces.element.IJavaScriptActions;
 import com.github.prestashop.services.driver.AutomationService;
 import com.github.prestashop.services.driver.BaseDriver;
 import com.github.prestashop.interfaces.element.IBaseElement;
 import com.github.prestashop.services.logger.BaseLogger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 import java.util.List;
 
-public abstract class BaseElement implements IBaseElement {
+public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
     private final By locator;
 
     private final String name;
@@ -53,6 +55,16 @@ public abstract class BaseElement implements IBaseElement {
         ConditionWaiters.waitUntilClickable(getLocator(), Duration.ofSeconds(10));
         this.findElement().click();
         logger.info(String.format("[SUCCESS]: Click on '%s' element with locator: %s", this.name, this.locator));
+    }
+
+    @Override
+    public void jsClick()
+    {
+        logger.info(String.format("[READY]: JS-Click on '%s' element with locator: %s", this.name, this.locator));
+        var element = findElement();
+        var executor = (JavascriptExecutor) AutomationService.get().browser().getOriginalDriver();
+        executor.executeScript("arguments[0].click();", element);
+        logger.info(String.format("[SUCCESS]: JS-Click on '%s' element with locator: %s", this.name, this.locator));
     }
 
     @Override

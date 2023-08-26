@@ -53,6 +53,11 @@ public class ShoppingCartSteps {
         MainFrame.doInFrame(arg -> this.productAddedModalForm.clickContinueShopping());
     }
 
+    @When("I click Proceed to Checkout button on Product Added modal window")
+    public void closeProceedToCheckoutModalWindow() {
+        MainFrame.doInFrame(arg -> this.productAddedModalForm.clickProceedToCheckout());
+    }
+
     @Then("I verify that Cart displays '{int}' as products added to Shopping Cart")
     public void verifyCartProductsCount(int expectedCartProductsCount) {
         MainFrame.doInFrame(arg -> {
@@ -82,5 +87,11 @@ public class ShoppingCartSteps {
     @When("I remove products on the following positions from my Shopping Cart:")
     public void removeProductsFromShoppingCartByIndexes(List<Integer> indexes) {
         MainFrame.doInFrame(arg -> indexes.forEach(shoppingCartPage::clickRemoveProductFromShoppingCart));
+    }
+
+    @When("I click Proceed to Checkout button on Shopping Cart")
+    public void clickProceedToCheckoutBtn()
+    {
+        MainFrame.doInFrame(arg -> shoppingCartPage.clickProceedToCheckoutBtn());
     }
 }

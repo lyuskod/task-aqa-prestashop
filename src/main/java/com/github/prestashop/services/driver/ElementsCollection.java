@@ -40,6 +40,21 @@ public class ElementsCollection<T extends BaseElement> implements IElementsColle
     }
 
     @Override
+    public DropDown getDropDown(By locator, String name) {
+        return new DropDown(locator, name);
+    }
+
+    @Override
+    public ClickableCheckbox getClickableCheckbox(By locator, String name) {
+        return new ClickableCheckbox(locator, name);
+    }
+
+    @Override
+    public ClickableRadioButton getClickableRadioButton(By locator, String name) {
+        return new ClickableRadioButton(locator, name);
+    }
+
+    @Override
     public List<T> getElements(String xPath, String name) {
         var baseElements = new ArrayList<T>();
         var webElements = this.driver.getOriginalDriver().findElements(By.xpath(xPath));

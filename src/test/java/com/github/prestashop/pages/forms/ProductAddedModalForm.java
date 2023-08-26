@@ -23,6 +23,9 @@ public class ProductAddedModalForm extends PageProxy implements IElementsHelper 
     private final Button continueShoppingBtn = AutomationService.get()
             .elements().getButton(By.cssSelector("button[class='btn btn-secondary']"), "'Continue shopping' button");
 
+    private final Button proceedToCheckoutBtn = AutomationService.get()
+            .elements().getButton(By.cssSelector("div.cart-content-btn a[class='btn btn-primary']"), "'Proceed to checkout' button");
+
     @AllArgsConstructor
     public enum ProductAttributes implements IEnumParser {
         QUANTITY("Quantity");
@@ -54,5 +57,10 @@ public class ProductAddedModalForm extends PageProxy implements IElementsHelper 
     public void clickContinueShopping()
     {
         this.continueShoppingBtn.click();
+    }
+
+    public void clickProceedToCheckout()
+    {
+        this.proceedToCheckoutBtn.click();
     }
 }

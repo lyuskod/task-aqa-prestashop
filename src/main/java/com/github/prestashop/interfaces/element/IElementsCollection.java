@@ -16,5 +16,11 @@ public interface IElementsCollection<T> {
 
     TextBox getTextBox(By locator, String name);
 
+    DropDown getDropDown(By locator, String name);
+
+    ClickableCheckbox getClickableCheckbox(By locator, String name);
+
+    ClickableRadioButton getClickableRadioButton(By locator, String name);
+
     List<BaseElement> getElements(String xpath, String name);
 }

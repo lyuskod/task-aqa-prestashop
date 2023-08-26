@@ -9,7 +9,7 @@ public class ParameterTypeTransformations {
         return value.equals("opened");
     }
 
-    @ParameterType("Main|Art|Product Added|Accessories|Shopping Cart|Clothes")
+    @ParameterType("Main|Art|Product Added|Accessories|Shopping Cart|Clothes|Personal Information|Addresses|Shipping Method|Payment|Order confirmed")
     public PageHelper.Pages pageNameTransform(String pageName) {
         return PageHelper.Pages.parse(pageName);
     }
