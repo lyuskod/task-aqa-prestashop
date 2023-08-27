@@ -119,15 +119,15 @@ Property | Values                                 | Description                 
 browserName | `firefox`, `chrome`                    | Browser                                                                               |
 version | `116`                                  | Browser version                                                                       |
 baseUrl | https://demo.prestashop.com/#/en/front | AUT base url                                                                          |
-options | `[]`                                   | Browser arguments. Can be passed like `["--headless"]`                                |
+options |  default: `["--headless"]`          | Browser arguments. Can be passed like `["--headless"]`                                |
 elementHighlightEnabled | `true`                                 | When interact with webelement, then the simple red border will be drawn around it     |
-timeouts.timeoutImplicitSec | `40`                                    | Implicit wait time in seconds                                                         |
-timeouts.timeoutScriptSec | `20` | Script load timeout in seconds                                                        |
-timeouts.timeoutPageLoadSec | `60` | Page load timeout in seconds                                                          |
-logger.enabled | `true` | Enable framework logging                                                              | 
-screenResolution.width | `1920` | Browser window resolution width                                                       |
-screenResolution.height | `1080` | Browser window resolution height                                                      |
-executionSpeedDelayMs | `250` | Sleep time before each webelement interaction. Simply need to slow down the execution |
+timeouts.timeoutImplicitSec | `40`                                   | Implicit wait time in seconds                                                         |
+timeouts.timeoutScriptSec | `20`                                   | Script load timeout in seconds                                                        |
+timeouts.timeoutPageLoadSec | `60`                                   | Page load timeout in seconds                                                          |
+logger.enabled | `true`                                 | Enable framework logging                                                              | 
+screenResolution.width | `1920`                                 | Browser window resolution width                                                       |
+screenResolution.height | `1080`                                 | Browser window resolution height                                                      |
+executionSpeedDelayMs | `250`                                  | Sleep time before each webelement interaction. Simply need to slow down the execution |
 
 ## Logger
 This section describes how to enable/disable logger and turn on/off particular stdouts
