@@ -47,9 +47,9 @@ There are 2 main folders in this repo:
 - `src/test` - Contains all the AUT sources 
 ### Framework functionality
 - `src/main/**/constants/BrowserTypes` - Simple enum uses to store browser names
-- `src/main/**/factory` - Folder contains class to serve as factory methods to get browser and options based on values stored in `settings.json`
+- `src/main/**/factory` - Folder contains classes to serve as factory methods to get browser and options based on values stored in `settings.json`
 - `src/main/**/helpers` - Stores helpers like `AllureHelper`, `AssertHelpers`, `ConditionalWaiters`, `ConfigHelpers` and etc. Also it stores models for data bind
-- `src/main/**/interfaces` - Stores interfaces like `BaseDriver`, `BaseElement`, 'BaseForm` and etc
+- `src/main/**/interfaces` - Stores interfaces like `BaseDriver`, `BaseElement`, `BaseForm` and etc
 - `src/main/**/services` - Stores the main services like `Automation`, `Logger` and etc.
 ### Testing functionality
 - `src/test/**/features` - Stores cucumber feature files
@@ -123,6 +123,7 @@ timeouts.timeoutPageLoadSec | `60` | Page load timeout in seconds               
 logger.enabled | `true` | Enable framework logging | 
 screenResolution.width | `1920` | Browser window resolution width |
 screenResolution.height | `1080` | Browser window resolution height |
+executionSpeedDelayMs | `250` | Sleep time before each webelement interaction. Simply need to slow down the execution |
 
 ## Logger
 This section describes how to enable/disable logger and turn on/off particular stdouts
@@ -151,6 +152,12 @@ Simply run the following command:
 mvn clean test
 ```
 ### Directly from feature file
+In that way, you should have been installed `Cucumber` extension for your IDE.
+Make use the following configuration settings are filled in:
+- `Main Class = io.cucumber.core.cli.Main`
+- `Glue = com.github.prestashop.transformations com.github.prestashop.hooks com.github.prestashop.steps`
+
+How to run:
 - Right click on any feature file and select `Run ${feature-file-name}`
 - Open any feature file content and click `Run` near feature file name or scenario
 
