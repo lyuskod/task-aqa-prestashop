@@ -1,16 +1,14 @@
-package com.github.prestashop.models;
+package com.github.prestashop.helpers.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @AllArgsConstructor
 public class ProductModelDto {
-    @Getter
-    @Setter
     private int Quantity;
 
-    @Getter
-    @Setter
     private int Position;
 }

@@ -31,12 +31,6 @@ public class DriverTimeouts implements IDriverTimeouts {
         this.logger = BaseLogger.getLogger(DriverTimeouts.class);
     }
 
-    public void setDefaultTimeouts() {
-        this.setImplicitTime(PredefinedTimeouts.SEC_10.getDuration());
-        this.setPageLoadTime(PredefinedTimeouts.SEC_10.getDuration());
-        this.setScriptTimeout(PredefinedTimeouts.SEC_10.getDuration());
-    }
-
     @Override
     public void setImplicitTime(Duration duration) {
         logger.info(String.format("[READY]: Set driver implicit wait timeout to '%s'", duration));

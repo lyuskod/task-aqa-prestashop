@@ -13,13 +13,10 @@ public abstract class BaseDriver implements IBaseDriver {
 
     private final DriverTimeouts timeouts;
 
-    private final DriverSession session;
-
     public BaseDriver(WebDriver driver) {
         this.driver = driver;
         this.window = new DriverWindow(this.driver);
         this.timeouts = new DriverTimeouts(this.driver);
-        this.session = new DriverSession(this.driver);
         this.logger = BaseLogger.getLogger(BaseDriver.class);
     }
 
@@ -31,11 +28,6 @@ public abstract class BaseDriver implements IBaseDriver {
     @Override
     public DriverTimeouts timeouts() {
         return this.timeouts;
-    }
-
-    @Override
-    public DriverSession session() {
-        return this.session;
     }
 
     @Override

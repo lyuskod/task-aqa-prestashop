@@ -1,6 +1,6 @@
 package com.github.prestashop.steps;
 
-import com.github.prestashop.extensions.BooleanExtensions;
+import com.github.prestashop.helpers.BooleanHelper;
 import com.github.prestashop.helpers.AssertHelper;
 import com.github.prestashop.helpers.ConditionWaiters;
 import com.github.prestashop.helpers.PageHelper;
@@ -17,7 +17,7 @@ public class CommonSteps {
                 ConditionWaiters.waitUntilVisible(page.getPageInstance().getLocator(), Duration.ofSeconds(10));
             }
             boolean actualState = page.getPageInstance().isOpened();
-            String wordingState = BooleanExtensions.getWording(actualState);
+            String wordingState = BooleanHelper.getWording(actualState);
             AssertHelper.assertEquals(actualState, expectedState,
                     String.format("The '%s' page is %sopened", page.getDisplayedName(), wordingState), true);
         });

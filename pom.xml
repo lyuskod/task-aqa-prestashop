@@ -19,6 +19,7 @@
         <junit-jupiter-api.version>5.9.3</junit-jupiter-api.version>
         <lombok.version>1.18.26</lombok.version>
         <log4j.vesion>2.19.0</log4j.vesion>
+        <jackson-databind.version>2.15.2</jackson-databind.version>
         <maven.compiler.source>20</maven.compiler.source>
         <maven.compiler.target>20</maven.compiler.target>
         <maven.surfire.plugin.version>2.20</maven.surfire.plugin.version>
@@ -74,6 +75,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
         </dependency>
     </dependencies>
     <build>

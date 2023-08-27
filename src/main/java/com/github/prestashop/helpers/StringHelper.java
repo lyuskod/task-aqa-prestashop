@@ -1,4 +1,4 @@
-package com.github.prestashop.extensions;
+package com.github.prestashop.helpers;
 
 import com.github.prestashop.services.logger.BaseLogger;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -6,8 +6,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-public class StringExtensions {
-    private static final BaseLogger logger = BaseLogger.getLogger(StringExtensions.class);
+public class StringHelper {
+    private static final BaseLogger logger = BaseLogger.getLogger(StringHelper.class);
     private static final int LENGTH = 10;
     private static final boolean USE_LETTERS = true;
     private static final boolean USE_NUMBERS = true;
@@ -17,7 +17,7 @@ public class StringExtensions {
         UPPER_CASE
     }
 
-    private StringExtensions() {
+    private StringHelper() {
     }
 
     public static String generateRandomString(int length, boolean useLetters, boolean useNumbers, StringCaseFormat format) {

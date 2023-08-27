@@ -5,6 +5,8 @@ import java.util.function.Consumer;
 public interface IDriverWindow {
     void setFullScreen();
 
+    void setMaximize();
+
     byte[] getScreenshot();
 
     void switchToFrame(String nameOrIdCss);

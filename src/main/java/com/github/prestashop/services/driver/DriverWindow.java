@@ -28,6 +28,13 @@ public class DriverWindow implements IDriverWindow {
     }
 
     @Override
+    public void setMaximize() {
+        logger.info("[READY]: Set browser screen mode to fullscreen");
+        this.window.maximize();
+        logger.info("[SUCCESS]: Set browser screen mode to fullscreen");
+    }
+
+    @Override
     public byte[] getScreenshot() {
         logger.info("[READY]: Take screenshot");
         var bytes = ((TakesScreenshot) this.driver).getScreenshotAs(OutputType.BYTES);

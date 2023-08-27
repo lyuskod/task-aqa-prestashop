@@ -1,11 +1,11 @@
-package com.github.prestashop.extensions;
+package com.github.prestashop.helpers;
 
 import com.github.prestashop.services.logger.BaseLogger;
 
-public class BooleanExtensions {
-    private static final BaseLogger logger = BaseLogger.getLogger(BooleanExtensions.class);
+public class BooleanHelper {
+    private static final BaseLogger logger = BaseLogger.getLogger(BooleanHelper.class);
 
-    private BooleanExtensions() {
+    private BooleanHelper() {
     }
 
     public static String getWording(boolean value) {

@@ -1,7 +1,7 @@
 package com.github.prestashop.steps;
 
-import com.github.prestashop.cucumber.ElementsHelper;
-import com.github.prestashop.cucumber.dto.ElementDto;
+import com.github.prestashop.helpers.ElementsHelper;
+import com.github.prestashop.helpers.models.ElementModel;
 import com.github.prestashop.helpers.AllureHelper;
 import com.github.prestashop.helpers.AssertHelper;
 import com.github.prestashop.pages.frames.MainFrame;
@@ -31,7 +31,7 @@ public class OrderProcessingSteps {
     }
 
     @When("I configure the Addresses page as follows:")
-    public void configureAddressesPage(List<ElementDto> elements) {
+    public void configureAddressesPage(List<ElementModel> elements) {
         MainFrame.doInFrame(arg -> ElementsHelper.configureElements(addressesPage, elements));
         AllureHelper.takeAndAttachScreenShot();
     }
@@ -69,7 +69,7 @@ public class OrderProcessingSteps {
     }
 
     @When("I configure the Personal Information page as follows:")
-    public void configurePersonalInformation(List<ElementDto> elements) {
+    public void configurePersonalInformation(List<ElementModel> elements) {
         MainFrame.doInFrame(arg -> {
             ElementsHelper.configureElements(personalInformationPage, elements);
         });

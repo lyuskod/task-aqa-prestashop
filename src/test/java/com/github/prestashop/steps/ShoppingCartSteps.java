@@ -1,8 +1,8 @@
 package com.github.prestashop.steps;
 
-import com.github.prestashop.cucumber.ElementsHelper;
-import com.github.prestashop.cucumber.dto.ElementDto;
-import com.github.prestashop.extensions.StringExtensions;
+import com.github.prestashop.helpers.ElementsHelper;
+import com.github.prestashop.helpers.models.ElementModel;
+import com.github.prestashop.helpers.StringHelper;
 import com.github.prestashop.helpers.AllureHelper;
 import com.github.prestashop.helpers.AssertHelper;
 import com.github.prestashop.pages.forms.NavigationMenuForm;
@@ -41,7 +41,7 @@ public class ShoppingCartSteps {
     }
 
     @Then("I verify that product has the following info on the product added modal:")
-    public void verifyProductAddedModalProductInfo(List<ElementDto> expectedData) {
+    public void verifyProductAddedModalProductInfo(List<ElementModel> expectedData) {
         MainFrame.doInFrame(arg -> ElementsHelper.verifyElements(productAddedModalForm, expectedData));
         AllureHelper.takeAndAttachScreenShot();
     }
@@ -59,7 +59,7 @@ public class ShoppingCartSteps {
     @Then("I verify that Cart displays '{int}' as products added to Shopping Cart")
     public void verifyCartProductsCount(int expectedCartProductsCount) {
         MainFrame.doInFrame(arg -> {
-            var actualCartProductsCount = StringExtensions.extractNumberFromString(this.navigationMenuForm.getCartProductsCount());
+            var actualCartProductsCount = StringHelper.extractNumberFromString(this.navigationMenuForm.getCartProductsCount());
             AssertHelper.assertEquals(actualCartProductsCount, expectedCartProductsCount,
                     String.format("Expected Cart product count to eq %d", expectedCartProductsCount), true);
         });

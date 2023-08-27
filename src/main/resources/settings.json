@@ -1,0 +1,14 @@
+{
+  "browserName": "firefox",
+  "baseUrl": "https://demo.prestashop.com/#/en/front",
+  "elementHighlightEnabled": true,
+  "timeouts": {
+    "timeoutImplicitSec": 40,
+    "timeoutScriptSec": 20,
+    "timeoutPageLoadSec": 60
+  },
+  "logger": {
+    "enabled": true
+  },
+  "screenMode": "fullscreen"
+}

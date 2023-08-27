@@ -1,4 +1,4 @@
-package com.github.prestashop.runner;
+package com.github.prestashop;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

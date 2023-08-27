@@ -1,7 +1,6 @@
 package com.github.prestashop.helpers;
 
 import com.github.prestashop.services.driver.Automation;
-import com.github.prestashop.extensions.StringExtensions;
 import com.github.prestashop.services.logger.BaseLogger;
 import io.qameta.allure.Allure;
 import lombok.AllArgsConstructor;
@@ -26,7 +25,7 @@ public class AllureHelper {
     public static byte[] takeAndAttachScreenShot() {
         logger.info("[READY]: Take and attach screenshot to Allure");
         var byteArray = Automation.get().browser().window().getScreenshot();
-        Allure.addByteAttachmentAsync(IMAGE_DEFINITION + StringExtensions.generateRandomString(),
+        Allure.addByteAttachmentAsync(IMAGE_DEFINITION + StringHelper.generateRandomString(),
                 AttachmentFormats.Image_PNG.getFormat(), () -> byteArray);
         logger.info("[SUCCESS]: Take and attach screenshot to Allure");
         return byteArray;

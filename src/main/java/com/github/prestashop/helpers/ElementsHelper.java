@@ -1,7 +1,6 @@
-package com.github.prestashop.cucumber;
+package com.github.prestashop.helpers;
 
-import com.github.prestashop.cucumber.dto.ElementDto;
-import com.github.prestashop.helpers.AssertHelper;
+import com.github.prestashop.helpers.models.ElementModel;
 import com.github.prestashop.interfaces.cucumber.IElementsMap;
 import com.github.prestashop.interfaces.element.IClickableElement;
 import com.github.prestashop.services.element.*;
@@ -13,34 +12,34 @@ import java.util.List;
 public class ElementsHelper {
     private static final BaseLogger logger = BaseLogger.getLogger(ElementsHelper.class);
 
-    public static void verifyElements(IElementsMap pageInstance, List<ElementDto> expectedElementsCollection) {
+    public static void verifyElements(IElementsMap pageInstance, List<ElementModel> expectedElementsCollection) {
         var elements = pageInstance.getElementsMap();
-        expectedElementsCollection.forEach(elementDto -> {
-            if (elements.containsKey(elementDto.getElementName())) {
-                var exactElement = elements.get(elementDto.getElementName());
+        expectedElementsCollection.forEach(elementModel -> {
+            if (elements.containsKey(elementModel.getElementName())) {
+                var exactElement = elements.get(elementModel.getElementName());
 
                 if (exactElement instanceof Text) {
-                    var expTextValue = elementDto.getElementValue();
+                    var expTextValue = elementModel.getElementValue();
                     var actTextValue = ((Text) exactElement).getTextValue();
                     logger.info(String.format("[READY]: Verify Text Element with name '%s' and locator '%s' to have value '%s'", exactElement.getName(), exactElement.getLocator(), expTextValue));
                     AssertHelper.assertEquals(actTextValue, expTextValue,
-                            String.format("Expected value for '%s' element with '%s' locator is '%s'", elementDto.getElementName(), exactElement.getLocator(), expTextValue), false);
+                            String.format("Expected value for '%s' element with '%s' locator is '%s'", elementModel.getElementName(), exactElement.getLocator(), expTextValue), false);
                     logger.info(String.format("[SUCCESS]: Verify Text Element with name '%s' and locator '%s'", exactElement.getName(), exactElement.getLocator()));
                 }
             } else {
                 throw new IllegalArgumentException(String
                         .format("The '%s' element name is not found in map from '%s'.",
-                                elementDto.getElementName(), pageInstance.getClass().getName()));
+                                elementModel.getElementName(), pageInstance.getClass().getName()));
             }
         });
     }
 
-    public static void configureElements(IElementsMap helper, List<ElementDto> elementDTOS) {
+    public static void configureElements(IElementsMap helper, List<ElementModel> elementModels) {
         HashMap<String, BaseElement> elements = helper.getElementsMap();
-        elementDTOS.forEach(elementDTO -> {
-            if (elements.containsKey(elementDTO.getElementName())) {
-                var exactElement = elements.get(elementDTO.getElementName());
-                var elementValue = elementDTO.getElementValue();
+        elementModels.forEach(elementModel -> {
+            if (elements.containsKey(elementModel.getElementName())) {
+                var exactElement = elements.get(elementModel.getElementName());
+                var elementValue = elementModel.getElementValue();
 
                 if (exactElement instanceof TextBox) {
                     ((TextBox) (exactElement)).clearAndType(elementValue);
@@ -52,7 +51,7 @@ public class ElementsHelper {
             } else {
                 throw new IllegalArgumentException(String
                         .format("The '%s' element name is not found in map from '%s'.",
-                                elementDTO.getElementName(), helper.getClass().getName()));
+                                elementModel.getElementName(), helper.getClass().getName()));
             }
         });
     }
