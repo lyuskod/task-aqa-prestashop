@@ -1,4 +1,4 @@
-# NumbersAPI Automation
+# Prestashop Automation
 Welcome to the task-aqa-prestashop automation repository!
 
 # Table of Content
@@ -40,6 +40,7 @@ Welcome to the task-aqa-prestashop automation repository!
 - Java >= v20
 - Maven >= 3.9.2
 - Allure >= 2.22.3
+- Firefox/Chrome
 
 ## Framework overview
 There are 2 main folders in this repo:
@@ -64,7 +65,7 @@ There are 2 main folders in this repo:
 - `F01_AddOneProduct` - 2 scenarios
 - `F02_AddMultipleProducts` - 1 scenario
 - `F03_RemoveProducts` - 2 scenarios
-- `F04_OrderProduct` - 1 scenario
+- `F04_OrderProduct` - 2 scenario
 
 _All the feature files are `Scenario Outline`'s so it can be customizable any time and way_
 
@@ -84,6 +85,7 @@ _To generate an allure report, just run the following command from `target` dire
 ```
 allure serve
 ```
+PS: By default, the test will be running in headless mode. If you want to enable headed mode, remove `--headless` option from `options` list in `settings.json` file. For more info see [Configuration settings](#configuration-settings)
 
 ## Reporting
 Here you can see how the actual report looks:
