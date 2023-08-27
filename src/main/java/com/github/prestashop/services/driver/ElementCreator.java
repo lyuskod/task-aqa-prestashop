@@ -1,9 +1,12 @@
 package com.github.prestashop.services.driver;
 
+import com.github.prestashop.helpers.BrowserHelper;
 import com.github.prestashop.services.element.*;
 import com.github.prestashop.interfaces.element.IElementCreator;
+import com.github.prestashop.services.logger.BaseLogger;
 import org.openqa.selenium.By;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +70,7 @@ public class ElementCreator<T extends BaseElement> implements IElementCreator {
     @Override
     public List<T> getElements(String xPath, String name) {
         var baseElements = new ArrayList<T>();
+        BrowserHelper.resetImplicitTimeout(this.driver);
         var webElements = this.driver.getOriginalDriver().findElements(By.xpath(xPath));
         for (var index = 0; index < webElements.size(); index++) {
             var baseElementLocator = String.format("(%s)[%d]", xPath, index + 1);
@@ -74,6 +78,7 @@ public class ElementCreator<T extends BaseElement> implements IElementCreator {
             var baseElement = (T) (new Label(By.xpath(baseElementLocator), baseElementName));
             baseElements.add(baseElement);
         }
+        BrowserHelper.setImplicitTimeout(this.driver);
         return baseElements;
     }
 

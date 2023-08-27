@@ -13,13 +13,29 @@ public class BrowserHelper {
         configureScreenMode(driver);
     }
 
-    public static void configureTimeouts(BaseDriver driver) {
-        var pageLoadTimeout = Duration.ofSeconds(ConfigHelper.get().getTimeouts().getTimeoutPageLoadSec());
-        var scriptTimeout = Duration.ofSeconds(ConfigHelper.get().getTimeouts().getTimeoutScriptSec());
+    public static void resetImplicitTimeout(BaseDriver driver) {
+        driver.timeouts().setImplicitTime(Duration.ofSeconds(0));
+    }
+
+    public static void setImplicitTimeout(BaseDriver driver) {
         var implicitWaitTimeout = Duration.ofSeconds(ConfigHelper.get().getTimeouts().getTimeoutImplicitSec());
-        driver.timeouts().setPageLoadTime(pageLoadTimeout);
-        driver.timeouts().setScriptTimeout(scriptTimeout);
         driver.timeouts().setImplicitTime(implicitWaitTimeout);
+    }
+
+    public static void setPageLoadTimeout(BaseDriver driver) {
+        var pageLoadTimeout = Duration.ofSeconds(ConfigHelper.get().getTimeouts().getTimeoutPageLoadSec());
+        driver.timeouts().setPageLoadTime(pageLoadTimeout);
+    }
+
+    public static void setScriptTimeOut(BaseDriver driver) {
+        var scriptTimeout = Duration.ofSeconds(ConfigHelper.get().getTimeouts().getTimeoutScriptSec());
+        driver.timeouts().setScriptTimeout(scriptTimeout);
+    }
+
+    public static void configureTimeouts(BaseDriver driver) {
+        setImplicitTimeout(driver);
+        setPageLoadTimeout(driver);
+        setScriptTimeOut(driver);
     }
 
     public static void configureScreenMode(BaseDriver driver) {
@@ -28,7 +44,7 @@ public class BrowserHelper {
     }
 
     public static void delay() {
-        var delay = ConfigHelper.get().getExecutionSpeedDelaySec();
+        var delay = ConfigHelper.get().getExecutionSpeedDelayMs();
         try {
             Thread.sleep(delay);
         } catch (InterruptedException e) {

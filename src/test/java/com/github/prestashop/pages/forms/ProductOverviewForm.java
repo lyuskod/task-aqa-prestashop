@@ -24,6 +24,6 @@ public class ProductOverviewForm extends BaseForm {
     }
 
     public void addToCart() {
-        this.addToCartButton.click();
+        this.addToCartButton.jsClick();
     }
 }

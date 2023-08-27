@@ -7,6 +7,10 @@ public interface IBaseConfig {
 
     String getBaseUrl();
 
+    boolean getRemoteEnabled();
+
+    String getRemoteUrl();
+
     String getVersion();
 
     String[] getOptions();
@@ -23,5 +27,5 @@ public interface IBaseConfig {
 
     ScreenResolution getScreenResolution();
 
-    int executionSpeedDelaySec();
+    int executionSpeedDelayMs();
 }

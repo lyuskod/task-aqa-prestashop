@@ -11,7 +11,7 @@ public class ConfigHelper {
     public static ConfigModel get() {
         if (config == null) {
             try {
-                var configPath = EnvironmentHelper.isDocker() ? "/settings-docker.json" : "/settings.json";
+                final var configPath = "/settings.json";
                 var inputStream = ConfigHelper.class.getResourceAsStream(configPath);
                 config = new ObjectMapper().readValue(inputStream, ConfigModel.class);
             } catch (IOException e) {

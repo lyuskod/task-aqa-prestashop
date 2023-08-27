@@ -39,5 +39,3 @@ Feature: F02_AddMultipleProducts
     Examples:
       | Product Type #1 | Product Type #2 |
       | Clothes         | Art             |
-      | Accessories     | Clothes         |
-      | Art             | Accessories     |

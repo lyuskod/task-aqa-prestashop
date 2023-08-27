@@ -30,14 +30,19 @@ public class ConditionWaiters {
     }
 
     public static void waitUntilNotDisplayed(By locator, Duration timeout) {
-        logger.info(String.format("[READY]: Wait until element visible. Locator: '%s'. Timeout: '%s'", locator, timeout));
+        logger.info(String.format("[READY]: Wait until element invisible. Locator: '%s'. Timeout: '%s'", locator, timeout));
         try {
-            logger.warn(String.format("[WARN]: Attempt to wait until element visible. Locator: '%s'. Timeout: '%s'", locator, timeout));
+            logger.warn(String.format("[WARN]: Attempt to wait until element invisible. Locator: '%s'. Timeout: '%s'", locator, timeout));
+            BrowserHelper.resetImplicitTimeout(Automation.get().browser());
             new WebDriverWait(Automation.get().browser().getOriginalDriver(), timeout)
-                    .until(ExpectedConditions.invisibilityOfElementLocated(locator));
+                    .until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(locator)));
         } catch (TimeoutException ignored) {
-            logger.warn(String.format("[WARN]: Timeout exception to wait until element visible is ignored. Locator: '%s'. Timeout: '%s'", locator, timeout));
+            logger.warn(String.format("[WARN]: Timeout exception to wait until element invisible is ignored. Locator: '%s'. Timeout: '%s'", locator, timeout));
+        } finally {
+            BrowserHelper.setImplicitTimeout(Automation.get().browser());
         }
     }
+
+
 }
 

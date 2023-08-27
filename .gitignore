@@ -30,6 +30,7 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+.idea
 
 ### VS Code ###
 .vscode/
@@ -42,3 +43,6 @@ logs/
 
 ### Reports ###
 allure-results
+
+### Docker ###
+docker-results

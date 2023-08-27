@@ -1,6 +1,10 @@
 {
-  "browserName": "firefox",
-  "version": "116.0.3",
+  "browserName": "chrome",
+  "version": "115.0.5790.110",
+  "remote": {
+    "enabled": true,
+    "url": "http://localhost:4444"
+  },
   "baseUrl": "https://demo.prestashop.com/#/en/front",
   "options": [],
   "elementHighlightEnabled": true,
@@ -13,8 +17,8 @@
     "enabled": true
   },
   "screenResolution": {
-    "width": 1920,
-    "height": 1080
+    "width": 1024,
+    "height": 768
   },
-  "executionSpeedDelaySec": 250
+  "executionSpeedDelayMs": 100
 }

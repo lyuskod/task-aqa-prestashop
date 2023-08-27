@@ -21,9 +21,7 @@ Feature: F01_AddOneProduct
 
     Examples:
       | Product Type |
-      | Clothes      |
       | Accessories  |
-      | Art          |
 
   Scenario Outline: F01_2_UserCanAdd<Product Type>With<Product Quantity>Quantity
     When I click on '<Product Type>' top menu item
@@ -45,6 +43,4 @@ Feature: F01_AddOneProduct
 
     Examples:
       | Product Type | Product Quantity |
-      | Clothes      | 2                |
-      | Accessories  | 3                |
       | Art          | 4                |

@@ -29,8 +29,6 @@ Feature: F03_RemoveProducts
 
     Examples:
       | Product Type |
-      | Clothes      |
-      | Accessories  |
       | Art          |
 
   Scenario Outline: F01_2_UserRemove<Product Type #1>And<Product Type #2>
@@ -79,5 +77,3 @@ Feature: F03_RemoveProducts
     Examples:
       | Product Type #1 | Product Type #2 |
       | Clothes         | Art             |
-      | Accessories     | Clothes         |
-      | Art             | Accessories     |

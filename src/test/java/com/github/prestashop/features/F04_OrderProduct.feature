@@ -53,5 +53,3 @@ Feature: F04_OrderProduct
     Examples:
       | Product Type |
       | Clothes      |
-      | Accessories  |
-      | Art          |

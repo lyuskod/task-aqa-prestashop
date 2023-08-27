@@ -80,7 +80,7 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
         logger.info(String.format("[READY]: Get element state for '%s' element with locator: %s", this.name, this.locator));
         var isDisplayed = false;
         try {
-            isDisplayed = findElement().isDisplayed(); //&& elementDisplayed;
+            isDisplayed = findElement().isDisplayed();
         } catch (Exception exception) {
             logger.warn(String.format("[WARN]: Failed attempt to get element state for '%s' element with locator: %s. Error message: %s", this.name, this.locator, exception.getMessage()));
         }

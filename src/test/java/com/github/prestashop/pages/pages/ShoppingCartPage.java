@@ -29,7 +29,7 @@ public class ShoppingCartPage extends BaseForm {
         var locator = String.format("(//a[@class='remove-from-cart'])[%d]", index);
         var name = String.format("Product #%d", index);
         Automation.get().elements().getLabel(By.xpath(locator), name).click();
-        ConditionWaiters.waitUntilNotDisplayed(By.xpath(locator), Duration.ofSeconds(5));
+        ConditionWaiters.waitUntilNotDisplayed(By.xpath(locator), Duration.ofSeconds(1));
     }
 
     public void proceedToCheckout() {
