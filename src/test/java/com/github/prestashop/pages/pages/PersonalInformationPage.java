@@ -84,6 +84,6 @@ public class PersonalInformationPage extends BaseForm implements IElementsMap {
     }
 
     public void clickContinueBtn() {
-        this.continueButton.click();
+        this.continueButton.jsClick();
     }
 }

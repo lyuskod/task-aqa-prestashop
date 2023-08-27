@@ -86,14 +86,17 @@ allure serve
 ```
 
 ## Reporting
-This section describes the ways to generate allure reports
+Here you can see how the actual report looks:
+![img.png](https://bafybeie2rquzzjr7bp6pw73ye7msus5kdnhgfrvgtg2ihc4gfw5egq6rf4.ipfs.nftstorage.link/)
+
+Also this section describes how to generate allure report.
 ### Generate manually
 Run this command from `~target` directory:
 ```
 allure serve
 ```
 ### Generate automatically
-Run this script to generate allure report automatically:
+Run this script after test execution to generate allure report automatically:
 ```
 script/open_report.bash
 ```
@@ -103,6 +106,7 @@ The `allure.properties` configuration file is located here `src/main/resources/a
 The `environment.properties` file is located here `src/main/resources/environment.properties`. To attach environment variables to the allure report just simply write down these env vars to this file
 
 ## Configuration
+![img.png](https://bafkreiaryjv6l73cgzdsueodqwnwgzuxqdvq773nziqefvjkhnysuxuv2m.ipfs.nftstorage.link/)
 This section describes the way how to configure framework settings
 ### Configuration file
 You can find framework configuration file by the following path:
@@ -110,19 +114,19 @@ You can find framework configuration file by the following path:
 ### Configuration settings
 ALl the possible configuration settings can be found in this table:
 
-Property | Values                                 | Description                                                                       |
---- |----------------------------------------|-----------------------------------------------------------------------------------|
-browserName | `firefox`, `chrome`                    | Browser                                                                           |
-version | `116`                                  | Browser version                                                                   |
-baseUrl | https://demo.prestashop.com/#/en/front | AUT base url                                                                      |
-options | `[]`                                   | Browser arguments. Can be passed like `["--headless"]`                            |
-elementHighlightEnabled | `true`                                 | When interact with webelement, then the simple red border will be drawn around it |
-timeouts.timeoutImplicitSec | `40`                                    | Implicit wait time in seconds                                                     |
-timeouts.timeoutScriptSec | `20` | Script load timeout in seconds                                                    |
-timeouts.timeoutPageLoadSec | `60` | Page load timeout in seconds                                                     |
-logger.enabled | `true` | Enable framework logging | 
-screenResolution.width | `1920` | Browser window resolution width |
-screenResolution.height | `1080` | Browser window resolution height |
+Property | Values                                 | Description                                                                           |
+--- |----------------------------------------|---------------------------------------------------------------------------------------|
+browserName | `firefox`, `chrome`                    | Browser                                                                               |
+version | `116`                                  | Browser version                                                                       |
+baseUrl | https://demo.prestashop.com/#/en/front | AUT base url                                                                          |
+options | `[]`                                   | Browser arguments. Can be passed like `["--headless"]`                                |
+elementHighlightEnabled | `true`                                 | When interact with webelement, then the simple red border will be drawn around it     |
+timeouts.timeoutImplicitSec | `40`                                    | Implicit wait time in seconds                                                         |
+timeouts.timeoutScriptSec | `20` | Script load timeout in seconds                                                        |
+timeouts.timeoutPageLoadSec | `60` | Page load timeout in seconds                                                          |
+logger.enabled | `true` | Enable framework logging                                                              | 
+screenResolution.width | `1920` | Browser window resolution width                                                       |
+screenResolution.height | `1080` | Browser window resolution height                                                      |
 executionSpeedDelayMs | `250` | Sleep time before each webelement interaction. Simply need to slow down the execution |
 
 ## Logger
@@ -144,14 +148,17 @@ Logger configuration can be found and changed by the following path:
 This section describes how to run tests
 
 ### Via TestRunner.java
+![img.png](https://bafybeialtmv6jdpq7adoc3gxxicd4cn6r7qo7befxb6h6ay6ar6ctmrjuy.ipfs.nftstorage.link/)
 Right click on `src/test/java/com/github/prestashop/TestRunner.java` and select `Run 'TestRunner'`
 
 ### Via maven
-Simply run the following command:
+![img.png](https://bafkreigytdaurilqeklmyokyt6bypcanfp3sektrk7kn7orvuwn6njufwu.ipfs.nftstorage.link/)
+Simply run the following command from the project root directory:
 ```
 mvn clean test
 ```
 ### Directly from feature file
+![img.png](https://bafybeidoiooa7lgonz6xt4jutl7zdyhexblcvmfx4p3kf45rcktzap3cii.ipfs.nftstorage.link/)
 In that way, you should have been installed `Cucumber` extension for your IDE.
 Make use the following configuration settings are filled in:
 - `Main Class = io.cucumber.core.cli.Main`
@@ -162,5 +169,6 @@ How to run:
 - Open any feature file content and click `Run` near feature file name or scenario
 
 ### From script
+![img.png](https://bafybeict4x3dv4qy5dveqx65hlkihgetnxkcmyvmxrvorpshyh43chte3q.ipfs.nftstorage.link/)
 Simply run `scripts/run_with_report.bash` via right click -> `Run` or from terminal.
 It will run tests, generate allure report, and open it in browser right after test run

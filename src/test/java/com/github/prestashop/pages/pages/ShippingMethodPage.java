@@ -27,6 +27,6 @@ public class ShippingMethodPage extends BaseForm {
 
     public void clickContinueBtn()
     {
-        this.continueButton.click();
+        this.continueButton.jsClick();
     }
 }

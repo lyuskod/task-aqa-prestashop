@@ -4,6 +4,7 @@ import com.github.prestashop.helpers.BrowserHelper;
 import com.github.prestashop.helpers.ConditionWaiters;
 import com.github.prestashop.helpers.ConfigHelper;
 import com.github.prestashop.helpers.JSHelper;
+import com.github.prestashop.interfaces.driver.IActions;
 import com.github.prestashop.interfaces.element.IBaseElement;
 import com.github.prestashop.interfaces.element.IJavaScriptActions;
 import com.github.prestashop.services.driver.Automation;
@@ -11,11 +12,12 @@ import com.github.prestashop.services.logger.BaseLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.List;
 
-public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
+public abstract class BaseElement implements IBaseElement, IJavaScriptActions, IActions {
     private final By locator;
 
     private final String name;
@@ -24,9 +26,12 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
 
     private WebElement element;
 
+    private Actions actions;
+
     public BaseElement(By locator, String name) {
         this.locator = locator;
         this.name = name;
+        this.actions = new Actions(Automation.get().browser().getOriginalDriver());
     }
 
     protected WebElement findElement() {
@@ -73,6 +78,13 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
         var executor = (JavascriptExecutor) Automation.get().browser().getOriginalDriver();
         executor.executeScript("arguments[0].click();", element);
         logger.info(String.format("[SUCCESS]: JS-Click on '%s' element with locator: %s", this.name, this.locator));
+    }
+
+    @Override
+    public void doubleClick() {
+        logger.info(String.format("[READY]: Double click on '%s' element with locator: %s", this.name, this.locator));
+        this.actions.doubleClick(findElement()).build().perform();
+        logger.info(String.format("[SUCCESS]: Double on '%s' element with locator: %s", this.name, this.locator));
     }
 
     @Override
