@@ -7,10 +7,6 @@ public interface IBaseConfig {
 
     String getBaseUrl();
 
-    boolean getRemoteEnabled();
-
-    String getRemoteUrl();
-
     String getVersion();
 
     String[] getOptions();

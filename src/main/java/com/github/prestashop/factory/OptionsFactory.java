@@ -5,8 +5,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.AbstractDriverOptions;
 
-import java.util.Arrays;
-
 public class OptionsFactory {
     private OptionsFactory() {
     }

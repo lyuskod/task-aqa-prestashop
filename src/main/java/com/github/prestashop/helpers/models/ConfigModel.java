@@ -10,8 +10,6 @@ public class ConfigModel {
 
     private String version;
 
-    private RemoteConfigModel remote;
-
     private String baseUrl;
 
     private String[] options;

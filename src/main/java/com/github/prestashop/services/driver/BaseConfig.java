@@ -16,16 +16,6 @@ public class BaseConfig implements IBaseConfig {
     }
 
     @Override
-    public boolean getRemoteEnabled() {
-        return ConfigHelper.get().getRemote().isEnabled();
-    }
-
-    @Override
-    public String getRemoteUrl() {
-        return ConfigHelper.get().getRemote().getUrl();
-    }
-
-    @Override
     public String getVersion() {
         return ConfigHelper.get().getVersion();
     }
