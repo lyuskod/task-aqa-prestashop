@@ -11,7 +11,7 @@ import com.github.prestashop.services.page.BaseForm;
 
 import java.util.HashMap;
 
-public class TopMenu extends BaseForm {
+public class TopMenuForm extends BaseForm {
     private final MenuItem clothesMenuItem = Automation.get()
             .elements()
             .getMenuItem(By.cssSelector("#top-menu > #category-3"), "\"Clothes\" menu item");
@@ -31,7 +31,7 @@ public class TopMenu extends BaseForm {
         @Getter
         private final String elementName;
 
-        public static TopMenu.TopMenuElements parse(String input) {
+        public static TopMenuForm.TopMenuElements parse(String input) {
             return IEnumParser.parse(input, values());
         }
     }
@@ -44,7 +44,7 @@ public class TopMenu extends BaseForm {
         }
     };
 
-    public TopMenu() {
+    public TopMenuForm() {
         super(By.cssSelector("#top-menu"), "Top Menu");
     }
 

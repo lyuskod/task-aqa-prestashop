@@ -1,3 +1,4 @@
+@smoke @remove_products
 Feature: F03_RemoveProducts
 
   Scenario Outline: F03_1_UserCanRemove<Product Type>Product

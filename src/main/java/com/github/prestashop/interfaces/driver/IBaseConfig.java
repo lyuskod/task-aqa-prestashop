@@ -1,9 +1,13 @@
 package com.github.prestashop.interfaces.driver;
 
+import com.github.prestashop.helpers.models.ScreenResolution;
+
 public interface IBaseConfig {
     String getBrowserName();
 
     String getBaseUrl();
+
+    String getVersion();
 
     boolean getElementHighlightEnabled();
 
@@ -15,5 +19,7 @@ public interface IBaseConfig {
 
     boolean getLoggerEnabled();
 
-    String getScreenMode();
+    ScreenResolution getScreenResolution();
+
+    int executionSpeedDelaySec();
 }

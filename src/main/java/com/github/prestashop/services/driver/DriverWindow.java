@@ -2,6 +2,7 @@ package com.github.prestashop.services.driver;
 
 import com.github.prestashop.interfaces.driver.IDriverWindow;
 import com.github.prestashop.services.logger.BaseLogger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -32,6 +33,13 @@ public class DriverWindow implements IDriverWindow {
         logger.info("[READY]: Set browser screen mode to fullscreen");
         this.window.maximize();
         logger.info("[SUCCESS]: Set browser screen mode to fullscreen");
+    }
+
+    @Override
+    public void setSize(int width, int height) {
+        logger.info(String.format("[READY]: Set browser screen resolution %dx%d", width, height));
+        this.window.setSize(new Dimension(width, height));
+        logger.info(String.format("[SUCCESS]: Set browser screen resolution %dx%d", width, height));
     }
 
     @Override

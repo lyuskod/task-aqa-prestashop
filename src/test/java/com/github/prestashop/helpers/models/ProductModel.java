@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProductModelDto {
+public class ProductModel {
     private int Quantity;
 
     private int Position;

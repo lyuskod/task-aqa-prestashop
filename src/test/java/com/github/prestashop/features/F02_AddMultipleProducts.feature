@@ -1,3 +1,4 @@
+@smoke @add_multiple_products
 Feature: F02_AddMultipleProducts
 
   Scenario Outline: F01_2_UserCanAddTwoProducts_<Product Type #1>And<Product Type #2>

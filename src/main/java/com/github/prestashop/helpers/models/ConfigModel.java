@@ -8,6 +8,8 @@ import lombok.Setter;
 public class ConfigModel {
     private String browserName;
 
+    private String version;
+
     private String baseUrl;
 
     private boolean elementHighlightEnabled;
@@ -16,5 +18,7 @@ public class ConfigModel {
 
     private LoggerConfigModel logger;
 
-    private String screenMode;
+    private ScreenResolution screenResolution;
+
+    private int executionSpeedDelaySec;
 }

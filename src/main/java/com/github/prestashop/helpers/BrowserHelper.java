@@ -23,16 +23,16 @@ public class BrowserHelper {
     }
 
     public static void configureScreenMode(BaseDriver driver) {
-        var screenMode = ConfigHelper.get().getScreenMode();
-        switch (ConfigHelper.get().getScreenMode()) {
-            case "fullscreen":
-                driver.window().setFullScreen();
-                break;
-            case "maximize":
-                driver.window().setMaximize();
-                break;
-            default:
-                throw new IllegalArgumentException(String.format("Screen mode '%s' is not allowed", screenMode));
+        var screenResolution = ConfigHelper.get().getScreenResolution();
+        driver.window().setSize(screenResolution.getWidth(), screenResolution.getHeight());
+    }
+
+    public static void delay() {
+        var delay = ConfigHelper.get().getExecutionSpeedDelaySec();
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

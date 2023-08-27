@@ -1,3 +1,4 @@
+@smoke @order_product
 Feature: F04_OrderProduct
 
   Scenario Outline: F04_1_UserCanOrder<Product Type>Product

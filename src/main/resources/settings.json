@@ -1,5 +1,6 @@
 {
   "browserName": "firefox",
+  "version": "116.0.3",
   "baseUrl": "https://demo.prestashop.com/#/en/front",
   "elementHighlightEnabled": true,
   "timeouts": {
@@ -10,5 +11,9 @@
   "logger": {
     "enabled": true
   },
-  "screenMode": "fullscreen"
+  "screenResolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "executionSpeedDelaySec": 250
 }

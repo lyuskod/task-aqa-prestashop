@@ -1,3 +1,4 @@
+@smoke @add_product
 Feature: F01_AddOneProduct
 
   Scenario Outline: F01_1_UserCanAddOne<Product Type>Product

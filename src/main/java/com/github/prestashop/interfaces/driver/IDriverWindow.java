@@ -7,6 +7,8 @@ public interface IDriverWindow {
 
     void setMaximize();
 
+    void setSize(int width, int height);
+
     byte[] getScreenshot();
 
     void switchToFrame(String nameOrIdCss);

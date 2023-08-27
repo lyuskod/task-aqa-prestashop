@@ -1,5 +1,6 @@
 package com.github.prestashop.factory;
 
+import com.github.prestashop.helpers.ConfigHelper;
 import com.github.prestashop.services.driver.BaseDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,14 +15,15 @@ public class BrowserFactory {
     public static BaseDriver getDriver(String browserName) {
         BaseDriver driver = null;
         var options = OptionsFactory.getOptions(browserName);
+        var browserVersion = ConfigHelper.get().getVersion();
         switch (browserName) {
             case "chrome" -> {
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().driverVersion(browserVersion).setup();
                 var webDriver = new ChromeDriver((ChromeOptions) options);
                 driver = new com.github.prestashop.services.driver.ChromeDriver(webDriver);
             }
             case "firefox" -> {
-                WebDriverManager.firefoxdriver().setup();
+                WebDriverManager.firefoxdriver().driverVersion(browserVersion).setup();
                 var webDriver = new FirefoxDriver((FirefoxOptions) options);
                 driver = new com.github.prestashop.services.driver.FirefoxDriver(webDriver);
             }

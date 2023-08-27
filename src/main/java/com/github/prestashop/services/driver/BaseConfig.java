@@ -1,6 +1,7 @@
 package com.github.prestashop.services.driver;
 
 import com.github.prestashop.helpers.ConfigHelper;
+import com.github.prestashop.helpers.models.ScreenResolution;
 import com.github.prestashop.interfaces.driver.IBaseConfig;
 
 public class BaseConfig implements IBaseConfig {
@@ -12,6 +13,11 @@ public class BaseConfig implements IBaseConfig {
     @Override
     public String getBaseUrl() {
         return ConfigHelper.get().getBaseUrl();
+    }
+
+    @Override
+    public String getVersion() {
+        return ConfigHelper.get().getVersion();
     }
 
     @Override
@@ -40,7 +46,12 @@ public class BaseConfig implements IBaseConfig {
     }
 
     @Override
-    public String getScreenMode() {
-        return ConfigHelper.get().getScreenMode();
+    public ScreenResolution getScreenResolution() {
+        return ConfigHelper.get().getScreenResolution();
+    }
+
+    @Override
+    public int executionSpeedDelaySec() {
+        return ConfigHelper.get().getExecutionSpeedDelaySec();
     }
 }

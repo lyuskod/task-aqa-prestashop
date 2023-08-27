@@ -1,5 +1,6 @@
 package com.github.prestashop.services.logger;
 
+import com.github.prestashop.helpers.ConfigHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,18 +16,26 @@ public final class BaseLogger {
     }
 
     public void debug(String message) {
-        this.log4j2.debug(message);
+        if (ConfigHelper.get().getLogger().isEnabled()) {
+            this.log4j2.debug(message);
+        }
     }
 
     public void warn(String message) {
-        this.log4j2.warn(message);
+        if (ConfigHelper.get().getLogger().isEnabled()) {
+            this.log4j2.warn(message);
+        }
     }
 
     public void info(String message) {
-        this.log4j2.info(message);
+        if (ConfigHelper.get().getLogger().isEnabled()) {
+            this.log4j2.info(message);
+        }
     }
 
     public void error(String message) {
-        this.log4j2.error(message);
+        if (ConfigHelper.get().getLogger().isEnabled()) {
+            this.log4j2.error(message);
+        }
     }
 }

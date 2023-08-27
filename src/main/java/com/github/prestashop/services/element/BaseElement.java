@@ -1,6 +1,9 @@
 package com.github.prestashop.services.element;
 
+import com.github.prestashop.helpers.BrowserHelper;
 import com.github.prestashop.helpers.ConditionWaiters;
+import com.github.prestashop.helpers.ConfigHelper;
+import com.github.prestashop.helpers.JSHelper;
 import com.github.prestashop.interfaces.element.IBaseElement;
 import com.github.prestashop.interfaces.element.IJavaScriptActions;
 import com.github.prestashop.services.driver.Automation;
@@ -19,6 +22,8 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
 
     private final BaseLogger logger = BaseLogger.getLogger(BaseElement.class);
 
+    private WebElement element;
+
     public BaseElement(By locator, String name) {
         this.locator = locator;
         this.name = name;
@@ -26,7 +31,12 @@ public abstract class BaseElement implements IBaseElement, IJavaScriptActions {
 
     protected WebElement findElement() {
         logger.debug(String.format("[READY]: Find '%s' element by locator: %s", this.name, this.locator));
-        var element = Automation.get().browser().getOriginalDriver().findElement(this.locator);
+        BrowserHelper.delay();
+        this.element = Automation.get().browser().getOriginalDriver().findElement(this.locator);
+        if (ConfigHelper.get().isElementHighlightEnabled()) {
+            JSHelper.removeHighlightFromElement(this.element);
+            JSHelper.highlightElement(this.element);
+        }
         logger.debug(String.format("[SUCCESS]: Find '%s' element by locator: %s. Element is found", this.name, this.locator));
         return element;
     }
