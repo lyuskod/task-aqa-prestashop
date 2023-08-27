@@ -9,6 +9,8 @@ public interface IBaseConfig {
 
     String getVersion();
 
+    String[] getOptions();
+
     boolean getElementHighlightEnabled();
 
     int getTimeoutImplicitSec();

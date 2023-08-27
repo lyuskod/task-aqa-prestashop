@@ -1,0 +1,32 @@
+{
+  "browserName": "firefox",
+  "version": "114",
+  "baseUrl": "https://demo.prestashop.com/#/en/front",
+  "options": [
+    "--remote-allow-origins=*",
+    "--shm-size=\"2g\"",
+    "--headless",
+    "--verbose",
+    "--no-sandbox",
+    "--disable-gpu",
+    "--whitelisted-ips",
+    "--allow-insecure-localhost",
+    "--disable-web-security",
+    "--ignore-certificate-errors",
+    "--allow-running-insecure-content"
+  ],
+  "elementHighlightEnabled": true,
+  "timeouts": {
+    "timeoutImplicitSec": 40,
+    "timeoutScriptSec": 20,
+    "timeoutPageLoadSec": 60
+  },
+  "logger": {
+    "enabled": true
+  },
+  "screenResolution": {
+    "width": 1024,
+    "height": 768
+  },
+  "executionSpeedDelaySec": 250
+}

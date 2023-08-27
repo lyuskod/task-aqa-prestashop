@@ -21,6 +21,11 @@ public class BaseConfig implements IBaseConfig {
     }
 
     @Override
+    public String[] getOptions() {
+        return ConfigHelper.get().getOptions();
+    }
+
+    @Override
     public boolean getElementHighlightEnabled() {
         return ConfigHelper.get().isElementHighlightEnabled();
     }

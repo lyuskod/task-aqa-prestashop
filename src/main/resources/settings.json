@@ -2,6 +2,7 @@
   "browserName": "firefox",
   "version": "116.0.3",
   "baseUrl": "https://demo.prestashop.com/#/en/front",
+  "options": [],
   "elementHighlightEnabled": true,
   "timeouts": {
     "timeoutImplicitSec": 40,

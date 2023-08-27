@@ -3,6 +3,8 @@ package com.github.prestashop.helpers.models;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.lang.reflect.Array;
+
 @Getter
 @Setter
 public class ConfigModel {
@@ -11,6 +13,8 @@ public class ConfigModel {
     private String version;
 
     private String baseUrl;
+
+    private String[] options;
 
     private boolean elementHighlightEnabled;
 

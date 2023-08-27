@@ -11,7 +11,8 @@ public class ConfigHelper {
     public static ConfigModel get() {
         if (config == null) {
             try {
-                var inputStream = ConfigHelper.class.getResourceAsStream("/settings.json");
+                var configPath = EnvironmentHelper.isDocker() ? "/settings-docker.json" : "/settings.json";
+                var inputStream = ConfigHelper.class.getResourceAsStream(configPath);
                 config = new ObjectMapper().readValue(inputStream, ConfigModel.class);
             } catch (IOException e) {
                 throw new RuntimeException(String.format("Cannot load automation service config by path resources/settings.json. Exception thrown: %s", e.getMessage()));

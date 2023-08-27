@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  e2e:
+    container_name: e2e-prestashop
+    build: .
+    volumes:
+      - ./docker-results:target/allure-results

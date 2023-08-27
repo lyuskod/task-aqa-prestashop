@@ -1,0 +1,33 @@
+---
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  e2e:
+    name: E2E - Prestashop
+    runs-on: markhobsoæn/maven-chrome:jdk-20
+    steps:
+      - name: Run e2e tests
+        run: |
+          mvn clean test
+        env:
+          IS_DOCKER: true
+          WDM_GITHUBTOKENNAME: TOKEN_GITHUB
+          WDM_GITHUBTOKENSECRET: ${{ secrets.TOKEN_GITHUB }}
+
+      - name: Put environment.properties to allure-results
+        run: |
+          cp src/test/resources/environment.properties target/allure-results
+
+      - name: Archive e2e results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure-results
+          path: |
+            target/allure-results
+          continue-on-error: true
